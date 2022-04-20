@@ -1,0 +1,964 @@
+{
+    "cmds": {
+        "info": {
+            "botinfo": {
+                "loading": "Получение информации о боте",
+                "field1": {
+                    "title": "💿 Общие -- Статистика",
+                    "value": "```yml\nСервера: {totalGuilds}\nУчастники: {totalMembers}\nСоединения: {connectedchannelsamount}```"
+                },
+                "field2": {
+                    "title": "💿 Бот -- Статистика"
+                },
+                "field3": {
+                    "title": "💿 Система -- Статистика",
+                    "value": "```yml\nOS: Linux | Debian\nCPU Usage: {cpu} %\nRAM Usage: {ram} MB```"
+                },
+                "field4": {
+                    "title": "💿 Разработчик"
+                },
+                "field5": {
+                    "title": "💿 Важные ссылки",
+                    "value": "[На покушать владельцу](https://qiwi.com/p/79061357548)・[VK](https://vk.com/almazmsi)"
+                },
+                "variable1": "`\\`\\`\\`yml\\nИмя: ${client.user.tag} [${client.user.id}]\\nЗадержка бота: ${Math.round(Date.now() - message.createdTimestamp)}ms\\nApi задержка: ${Math.round(client.ws.ping)}ms\\nВремя работы: ${duration(client.uptime).join(`︲`)}\\`\\`\\``",
+                "variable2": "``"
+            },
+            "commandcount": {
+                "tempmsg": "Получение информационных данных бота",
+                "title": ":gear: **[`{cmdcount}`] команд**",
+                "description": ":gear: **[`{catcount}`] Категорий**\n:gear: **[`{lines}`] Линий кода**\n<a:developer:944408523327037491> **[`{letters}`] Букв в коде**",
+                "variable1": "``"
+            },
+            "help": {
+                "error1": "Пользовательские команды еще не определены, сделать это возможно с помощью команды: `setup-customcommands`",
+                "nocustom": "Нет пользовательской информации для пользовательских команд ;(",
+                "noinfo": "Информация о команде не найдена **{command}**",
+                "footer": "Чтобы просмотреть описания и информацию о командах, введите: {prefix}help [CMD NAME]",
+                "detail": {
+                    "name": "**💿 Название команды**",
+                    "desc": "**💿 Описание**",
+                    "aliases": "**💿 Сокращение**",
+                    "about": "💿 Детальная информация про: `{cmdname}`",
+                    "cooldown": "**💿 Медленный режим**",
+                    "usage": "**💿 Использование**",
+                    "syntax": "Синтаксис: <> = требуется, [] = необязательный"
+                },
+                "buttons": {
+                    "home": "Домой",
+                    "back": "Назад",
+                    "forward": "Вперед"
+                },
+                "overview": {
+                    "title": ":gear: **__Обзор категории команд__**",
+                    "desc": "> 👍 ... **Главная страничка**\n\n> 🔰 ... **Информация**\n> 🎶 ... **Связанные с музыкой**\n> ⚙ ... **Настройки и 👑 Owner и ⌨️Программирование**\n> 🎤 ... **Голос и 📈 Рейтинг**\n> 🎮 ... **Мини-игры и 🕹️ развлечения**\n> 🚫 ... **Администрирование и 💪 Настройка**\n> 🔞 ... **NSFW**\n> 🦾 ... **Пользовательские команды**\n\n> *Нажмите на реакцию, чтобы перейти к категории команд.*\n> *Используйте стрелки для переключения страниц вперед/назад/назад-домой.*"
+                },
+                "buttonerror": "❌ **Только тот, кто напечатал {prefix}help разрешено реагировать!**",
+                "timeended": "Тип время закончилось {prefix}help напишите повторно!",
+                "variable1": "`🦾 **Пользователькие команды [${cuc[0].includes(`NO`) ? 0 : items.length}]**`",
+                "variable2": "`Help-меню 🔰 **${category.toUpperCase()} [${items.length}]**`",
+                "variable3": "`**${category.toUpperCase()} [${items.length}]**`, `> \\`${items[0]}\\`\\n\\n**Usage:**\\n> \\`${cmd.usage}\\``",
+                "variable4": "`${items.join(`︲`)}`",
+                "variable5": "`Информация о: __**${client.user.username}**__`"
+               },
+            "ping": {
+                "m1": ":heartbeat: Тестирование скорости соединения ...",
+                "m2": ":robot: Задержка бота: `{botping}ms`\n\n:stopwatch: Задержка хостинга: `{ping}`\n\n:hourglass: Api задержка: `{wsping}ms`",
+                "variable1": "``"
+            },
+            "sponsor": {
+                "variable1": "`BERO HOST | Our Primary Sponsor`",
+                "variable2": "`Third Sponsor of This Bot is:\\n**BERO-HOST** THE BEST HOSTER\\n<:arrow:832598861813776394> BERO-HOST.de is sponsoring them with some free / cheaper Hosting Methods,\\n<:arrow:832598861813776394> Thanks to them, we are able to host our Website, Bots and GAME SERVERS\\n<:arrow:832598861813776394> Our suggestion is, if you want to host Bots / Games / Websites, then go to [BERO-HOST.de](http://bero-host.de/?utm_source=bot&utm_medium=cpc&utm_id=milrato)\\n\\n**What they are offering:**\\n<:arrow:832598861813776394> **>>** Minecraft Hosting, CounterStrike: Global Offensive, Garry's Mod, ARK, ARMA 3, ...\\n<:arrow:832598861813776394> **>>** Cheap and fast Domains\\n<:arrow:832598861813776394> **>>** WEBHOSTING\\n<:arrow:832598861813776394> **>>** TEAMSPEAK SERVERS\\n<:arrow:832598861813776394> **>>** Linux & Windows Root Servers\\n\\n[**Discord Server:**](https://discord.bero-host.de)\\n[**Website:**](http://bero-host.de/?utm_source=bot&utm_medium=cpc&utm_id=milrato)\\n[**__SPONSOR LINK!__**](https://milrato.dev/img/paysafecard.png)\\n`",
+                "variable3": "`NEXTNODE | Our Secondary Sponsor`",
+                "variable4": "`<:arrow:832598861813776394> Nextnode is providing us, like BERO-HOST with free Discord Bot-Hosting technologies\\n\\n<:arrow:832598861813776394> If you use the code: **\\`x10\\`** their, then you'll get at least 5% off everything!\\n\\n<:arrow:832598861813776394> Check out their [Website](https://Nextnode.de) and their [Discord](https://discord.gg/GgjJZCyYKD) to get your own Bot too!`"
+            },
+            "stats": {
+                "title": "💿 Статистика {botname}",
+                "field1": {
+                    "title": "⚙️ Глобально Команд использовано:",
+                    "value": ">>> `{allcommands} команд` использовано\nна **на всех** серверах"
+                },
+                "field2": {
+                    "title": "🎵 Глобально Песен проиграно:",
+                    "value": ">>> `{allsongs} песен` проиграно на\n**на всех** серверах"
+                },
+                "field3": {
+                    "title": "⚙️ Серверно Команд использовано:",
+                    "value": ">>> `{guildcommands} команд` использовано in\n**этом** сервере"
+                },
+                "field4": {
+                    "title": "🎵 Серверно Песен проиграно:",
+                    "value": ">>> `{guildsongs} песен` проиграно in\n**этом** сервере"
+                },
+                "variablex_1": "`\\u200b`", "variable1": "`\\u200b`",
+                "variable2": "``"
+            },
+            "uptime": {
+                "TIME NOT NEEDED": "",
+                "variable1": "`:white_check_mark: **${client.user.username}** Uptime`",
+                "variable2": "`\\`\\`\\`css\\n${duration(client.uptime).map(i=> `${i}`).join(`︲`)}\\`\\`\\``",
+                "variablex_3": "`**Дата запуска**`", "variable3":"moment(timestamp).format(`LLLL`)",
+                "variable4": "``"
+            }
+        },
+        "music": {
+            "autoplay": {
+                "enabled": {
+                    "title": "**Успешно __включено__ автопроигрывание песен**",
+                    "description": "**Теперь я буду автоматически добавлять песню, когда очередь становится пустой (перезаписывает режим afk)!**"
+                },
+                "disabled": {
+                    "title": "**Успешно __выключено__ автопроигрывание песен**",
+                    "description": "**Теперь я не буду автоматически добавлять песню, когда очередь становится пустой (перезаписывает режим afk)!**"
+                },
+                "variable1": "`${player.get(`autoplay`) ? client.la[ls].cmds.music.autoplay.enabled.title : client.la[ls].cmds.music.autoplay.disabled.title}`",
+                "variable2": "`${player.get(`autoplay`) ? client.la[ls].cmds.music.autoplay.enabled.description : client.la[ls].cmds.music.autoplay.disabled.description}`",
+                "variable3": "``"
+            },
+            "clearqueue": {
+                "title": "🗑 **Очередь очищена!**",
+                "variable1": "``"
+            },
+            "forceskip": {
+                "title": "⏹️ **Прекратил играть и покинул свой канал!**",
+                "title2": "⏭ **Пропущен текущий трек!**",
+                "variable1": "`Канал: <#${player.voiceChannel}>`",
+                "variable2": "``"
+            },
+            "forward": {
+                "allowed": "❌ **Вы можете перемотать на `1` - `{duration}` секунду!**",
+                "title": "👍 **Перемотана песня**",
+                "description": "**Перемотано на `{amount} секунд` к: `{time}`**",
+                "field": "⌛ **Успехи:**",
+                "variable1": "``"
+            },
+            "grab": {
+                "author": "Сохранена песня:",
+                "field1": "⌛ **Длительность:**",
+                "field2": "💯 **Автор:**",
+                "field3": "🔄 **Длина очереди:**",
+                "field4": "🎶 **Кто играет:**",
+                "field5": "🔎 **Сохранена:**",
+                "footer": "Пользователь: {usertag} ・ в: {guild}",
+                "variable1": "`${player.playing ? `▶` : `⏸`} **${player.queue.current.title}**`",
+                "variable2": "``"
+            },
+            "join": {
+                "title": "👍 **Присоиденился и готов играть вам музыку!**",
+                "variable1": "`Канал: <#${player.voiceChannel}>`",
+                "variable2": "`Канал: <#${player.voiceChannel}>`",
+                "variable3": "`Канал: <#${player.voiceChannel}>`",
+                "variable4": "``"
+            },
+            "jump": {
+                "error1": "❌ **Пожалуйста, укажите, на какой трек вы хотите перейти**",
+                "error2": "❌ **Это должен быть `Номер очереди`**",
+                "error3": "❌ **Эта песня не в очереди**!",
+                "title": "👍 **Перескочил на: `{number}.` песню**",
+                "description": "⏭ **Пропущено `{number}` песен!**",
+                "variable1": "`${client.la[ls].common.example}: \\`${prefix}jump ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+                "variable2": "``"
+            },
+            "loop": {
+                "errortitle": "❌ **Пожалуйста, добавьте свой метод повторения!**",
+                "errordescription": "`loop song` / `loop queue` / `loop off`",
+                "track": {
+                    "disabled": "❌ **Отключен режим повтора трека!**",
+                    "enabled": "👍 **Включен режим повтора трека!**"
+                },
+                "queue": {
+                    "disabled": "❌ **Отключен режим повтора очереди!**",
+                    "enabled": "👍 **Включен режим повтора очереди**"
+                },
+                "andsong": "❌ **И отключил режим повтора песни!**",
+                "andqueue": "❌ **И отключил режим повтора очереди!**",
+                "variable1": "``"
+            },
+            "lyrics": {
+                "nolyrics": "❌ **Текст песени не найден!**",
+                "searching": "🔎 **Поиск текста для: `{title}`**",
+                "found": "📃 **Текст для:** `{title}`",
+                "variable1": "`\\u200b`",
+                "variable2": "``"
+            },
+            "move": {
+                "variable1": "`${emoji.msg.ERROR} | Неправильное использование команды!`",
+                "variable2": "`Применение: \\`${prefix}move <from> <to>\\`\\nПример: \\`${prefix}move ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 } 1\\``",
+                "variable3": "`${emoji.msg.ERROR} | Неправильное использование команды!`",
+                "variable4": "`Применение: \\`${prefix}move <from> <to>\\`\\nПример: \\`${prefix}move ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 } 1\\``",
+                "variable5": "`${emoji.msg.ERROR} | Ошибка Ваш ввод должен быть числом больше, чем \\`1\\` и меньше чем \\`${player.queue.length}\\``",
+                "variable6": "`Переместил песню в очереди с позиции \\`${args[0]}\\` to Position: \\`${args[1]}\\``",
+                "variable7": "`[${song.title}](${song.uri}) - \\`${format(song.duration)}\\` - запрошенный **${song.requester.tag}**`",
+                "variable8": "``"
+            },
+            "moveme": {
+                "variable1": "`${emoji.msg.ERROR} я никуда не подключен`",
+                "variable2": "`${emoji.msg.ERROR} Сначала подключитесь`",
+                "variable3": "`${emoji.msg.ERROR} Канал переполнен, я не могу тебя тронуть`",
+                "variable4": "`${emoji.msg.ERROR} Вы уже в моем канале `",
+                "variable5": "``"
+            },
+            "nowplaying": {
+                "variable1": "`${emoji.msg.ERROR} Сейчас ничего не играет`",
+                "variable2": "`${player.playing ? `${emoji.msg.resume}` : `${emoji.msg.pause}`} **${player.queue.current.title}**`",
+                "variable3": "``"
+            },
+            "pause": {
+                "variable1": "`${emoji.msg.ERROR} Эта песня уже остановлена!`",
+                "variable2": "`Чтобы её востановить то: \\`${prefix}resume\\``",
+                "variable3": "``"
+            },
+            "play": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`",
+                "variable2": "``"
+            },
+            "playlist": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`",
+                "variable2": "``"
+            },
+            "playmusicmix": {
+                "variable1": "`:notes: __**Другие варианты могут быть:**__`",
+                "variable2": "`>>> \\`\\`\\`blues, charts, chill, default, heavymetal, gaming, jazz, metal, magic-release, ncs, nocopyright, oldgaming, pop, remixes, rock, strange-fruits-gaming\\`\\`\\``",
+                "variablex_3": "`:muscle: **Чтобы играть в другой тип:**`", "variable3": "`> \\`${prefix}playmusicmix <NAME>\\`\\n💡 **Пример:**\\n> \\`${prefix}playmusicmix pop\\``",
+                "variable4": "``"
+            },
+            "playsc": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`",
+                "variable2": "``"
+            },
+            "playskip": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`",
+                "variable2": "``"
+            },
+            "playskipsc": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`",
+                "variable2": "``"
+            },
+            "playsongoftheday": {
+                "variable1": "``"
+            },
+            "playtop": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`"
+            },
+            "queue": {
+                "variablex_1": "`**0) Текущий трек**`", "variable1": "`**${player.queue.current.title.substr(0, 60)}** - \\`${player.queue.current.isStream ? `Прямая трансляция` : format(player.queue.current.duration).split(` | `)[0]}\\`\\n*запрос по: ${player.queue.current.requester.tag}*`",
+                "variable2": "`${emoji.msg.ERROR} Нет треков в очереди`",
+                "variablex_3": "`**0) Текущий трек**`", "variable3": "`**${player.queue.current.title.substr(0, 60)}** - \\`${player.queue.current.isStream ? `Прямая трансляция` : format(player.queue.current.duration).split(` | `)[0]}\\`\\n*запрос по: ${player.queue.current.requester.tag}*`",
+                "variablex_4": "`**0) Текущий трек**`", "variable4": "`**${player.queue.current.title.substr(0, 60)}** - \\`${player.queue.current.isStream ? `Прямая трансляция` : format(player.queue.current.duration).split(` | `)[0]}\\`\\n*запрос по: ${player.queue.current.requester.tag}*`",
+                "variable5": "``"
+            },
+            "queuestatus": {
+                "variable1": "`Информация об очереди **${message.guild.name}**`",
+                "variable2": "`**Подключено в :** <#${player.voiceChannel}> **И привязан к:** <#${player.textChannel}>`",
+                "variablex_3": "`${emoji.msg.autoplay_mode} Автопроигрывание`", "variable3": "`\\`\\`\\`${player.get(`autoplay`) ? `✅ Запущено` : `${emoji.msg.ERROR} Отключено`}\\`\\`\\``",
+                "variablex_4": "`${emoji.msg.disk} Текущий трек: `", "variable4": "`${player.queue && player.queue.current ? `${player.playing ? `${emoji.msg.resume}` : `${emoji.msg.pause}`} [**${player.queue.current.title}**](${player.queue.current.uri})` : `\\`\\`\\`${emoji.msg.ERROR} Ничего не играет\\`\\`\\``}`",
+                "variablex_5": "`${emoji.msg.time} Прогресс: `", "variable5": "player.queue && player.queue.current ? createBar(player) : `\\`\\`\\`${emoji.msg.ERROR} Ничего не играет\\`\\`\\``",
+                "variable6": "``"
+            },
+            "radio": {
+                "variable1": "`${emoji.msg.ERROR} Недействительная радиостанция`",
+                "variable2": "`Пожалуйста, используйте число между \\`1\\` и \\`183\\``",
+                "variable3": "`${emoji.msg.ERROR} Номер радиостанции вне допустимого диапазона`",
+                "variable4": "`Пожалуйста, используйте число между \\`1\\` и \\`150\\``",
+                "variable5": "`${emoji.msg.ERROR} Радиостанция была не найдена`",
+                "variable6": "`Пожалуйста, используйте станцию ​​между \\`1\\` и \\`183\\``",
+                "variable7": "``"
+            },
+            "reconnect": {
+                "variable1": "`No setup done yet? Try it with \\`${prefix}setup-radio\\``",
+                "variable2": "`No setup done yet? Try it with \\`${prefix}setup-radio\\``",
+                "variable3": "``"
+            },
+            "removedupes": {
+                "variable1": "`${emoji.msg.cleared}Я удалил трек в позиции: \\`${Number(args[0])}\\``",
+                "variable2": "``"
+            },
+            "removetrack": {
+                "variable1": "`${emoji.msg.ERROR} Please add the Track you want to remove!`",
+                "variable2": "`Пример: \\`removetrack ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+                "variable3": "`${emoji.msg.ERROR} It has to be a valid Queue Number!`",
+                "variable4": "`Пример: \\`removetrack ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+                "variable5": "`${emoji.msg.ERROR} Your Song must be in the Queue!`",
+                "variable6": "`Пример: \\`removetrack ${player.queue.size - 2 <= 0 ? player.queue.size : player.queue.size - 2 }\\``",
+                "variable7": "`${emoji.msg.cleared}Я удалил трек в позиции: \\`${Number(args[0])}\\``",
+                "variable8": "``"
+            },
+            "removevoteskip": {
+                "variable1": "`Удалил ваш голос!`",
+                "variable2": "`Есть сейчас: \\`${player.get(`votes`)}\\` of \\`${voteamount}\\` необходимо голосов`",
+                "variable3": "`${emoji.msg.ERROR} Вы еще не проголосовали!!`",
+                "variable4": "`Есть сейчас: \\`${player.get(`votes`)}\\` of \\`${voteamount}\\` необходимо голосов`",
+                "variable5": "`${emoji.msg.ERROR} Не могу удалить свой голос!`",
+                "variable6": "`Поскольку настройка DJ-Role еще не создана, создайте её, набрав \\`${prefix}adddj @DJ-Setup\\``",
+                "variable7": "``"
+            },
+            "restart": {
+                "variable1": "``"
+            },
+            "resume": {
+                "variable1": "`${emoji.msg.ERROR} Песня уже возобновлена!`",
+                "variable2": "`Вы можете приостановить её с помощью: \\`${prefix}pause\\``",
+                "variable3": "``"
+            },
+            "rewind": {
+                "variable1": "`${emoji.msg.ERROR} Вы можете перемотать на \\`1\\` - \\`${player.queue.current.duration}\\``",
+                "variable2": "`${emoji.msg.rewind} Перемотал песню на \\`${args[0]} секунд\\` to: ${format(Number(player.position))}`",
+                "variable3": "``"
+            },
+            "search": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`",
+                "variable2": "``"
+            },
+            "searchplaylist": {
+                "variable1": "`ЭТА КОМАНДА ЕЩЕ НЕ ЗАВЕРШЕНА!`",
+                "variable2": "``"
+            },
+            "searchradio": {
+                "variable1": "`${emoji.msg.ERROR} What should be the search Type`",
+                "variable2": "`Usage: \\`${prefix}searchradio <TYPE> <Seach Query>\\`\\nValid Types: \\`country\\`, \\`city\\`, \\`name\\`, \\`genre\\`\\nПример: \\`${prefix}searchradio tag jazz\\`\\nПример: \\`${prefix}searchradio state Austria\\``",
+                "variable3": "`${emoji.msg.ERROR} What should I search for?`",
+                "variable4": "`Usage: \\`${prefix}searchradio <TYPE> <Seach Query>\\`\\nValid Types: \\`country\\`, \\`city\\`, \\`name\\`, \\`genre\\`\\nПример: \\`${prefix}searchradio tag jazz\\`\\nПример: \\`${prefix}searchradio state Austria\\``",
+                "variable5": "`${emoji.msg.ERROR} What should be the search Type`",
+                "variable6": "`Usage: \\`${prefix}searchradio <TYPE> <Seach Query>\\`\\nValid Types: \\`country\\`, \\`city\\`, \\`name\\`, \\`genre\\`\\nПример: \\`${prefix}searchradio tag jazz\\`\\nПример: \\`${prefix}searchradio state Austria\\``",
+                "variable7": "`Pick your Radio with the `INDEX Number``",
+                "variable8": "`${emoji.msg.ERROR} You didn't provide a selection`",
+                "variable9": "'${emoji.msg.ERROR} Cancelled selection.'",
+                "variable10": "`${emoji.msg.ERROR} The number you provided is not a Number within (1-${counter}).`",
+                "variable11": "`${emoji.msg.ERROR} The number you provided too small or too big (1-${counter}).`",
+                "variable12": "``",
+                "variable13": "``"
+            },
+            "searchsc": {
+                "variable1": "`${emoji.msg.ERROR} Вы должны дать мне URL-адрес или поисковый запрос.`",
+                "variable2": "``"
+            },
+            "searchsimilar": {
+                "variable1": "``"
+            },
+            "seek": {
+                "variable1": "`${emoji.msg.ERROR} Вы можете искать от \\`0\\` - \\`${player.queue.current.duration}\\``",
+                "variable2": "`Искал песню для: ${format(Number(args[0]) * 1000)}`",
+                "variable3": "``"
+            },
+            "shuffle": {
+                "variable1": "``"
+            },
+            "skip": {
+                "title": "⏹️ **Прекратил играть и покинул свой канал!**",
+                "title2": "⏭ **Пропущен текущий трек!**",
+                "variable1": "`Канал: <#${player.voiceChannel}>`",
+                "variable2": "``"
+            },
+            "stop": {
+                "variable1": "`${emoji.msg.stop} Остановился и покинул ваш канал`",
+                "variable2": "`${emoji.msg.ERROR} **В настоящее время на этом сервере не играет ни одна песня.**`",
+                "variable3": "`${emoji.msg.ERROR} **В настоящее время на этом сервере не играет ни одна песня.**`",
+                "variable4": "``"
+            },
+            "unshuffle": {
+                "variable1": "`${emoji.msg.ERROR} Вы еще не перетасовали эту очередь!`",
+                "variable2": "`Чтобы перетасовать, введите: \\`${prefix}shuffle\\``",
+                "variable3": "`${emoji.msg.shuffle} **Не**перемешал очередь`",
+                "variable4": "``"
+            },
+            "volume": {
+                "variable1": "`${emoji.msg.ERROR} Вы можете установить громкость \\`1\\` - \\`150\\``",
+                "variable2": "`**Текущая громкость: \\`${player.volume}%\\`**`",
+                "variable3": "`${emoji.msg.ERROR} Вы можете установить громкость \\`1\\` - \\`150\\``",
+                "variable4": "`**Текущая громкость: \\`${player.volume}%\\`**`",
+                "variable5": "`${emoji.msg.raise_volume} Громкость установлена ​​на: \\`${player.volume} %\\``",
+                "variable6": "`**Текущая громкость: \\`${player.volume}%\\`**`",
+                "variable7": "``"
+            },
+            "voteskip": {
+                "variable1": "`${emoji.msg.SUCCESS} Добавил свой голос!`",
+                "variable2": "`Есть сейчас: \\`${player.get(`votes`)}\\` из \\`${voteamount}\\` нужных голосов\\n\\n> Сумма достигнута! Пропусаем ⏭`",
+                "variable3": "`${emoji.msg.SUCCESS} Добавил свой голос!`",
+                "variable4": "`Есть сейчас: \\`${player.get(`votes`)}\\` из \\`${voteamount}\\` нужных голосов`",
+                "variable5": "`${emoji.msg.ERROR} Вы уже проголосовали!!`",
+                "variable6": "`Есть сейчас: \\`${player.get(`votes`)}\\` из \\`${voteamount}\\` нужных голосов`",
+                "variable7": "`${emoji.msg.SUCCESS} ${emoji.msg.stop} Остановился и покинул ваш канал`",
+                "variable8": "`${emoji.msg.SUCCESS} ${emoji.msg.skip_track} Переход к следующей песне`",
+                "variable9": "``"
+            },
+            "addprevious": {
+                "variable1": "``"
+            },
+            "addsimilar": {
+                "variable1": "``"
+            },
+            "loopqueue": {
+                "variable1": "``"
+            },
+            "loopsong": {
+                "variable1": "``"
+            },
+            "playprevious": {
+                "variable1": "``"
+            }
+        },
+        "settings": {
+            "addbotchat": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, добавьте канал через упоминание, например: #channel!`",
+                "variable2": "`${emoji.msg.ERROR} Кажется, что Канал не существует на этом Сервере!`",
+                "variable3": "`${emoji.msg.ERROR} Этот канал уже есть в списке!`",
+                "variable4": "`${emoji.msg.SUCCESS} Добавлен Бот-чат \\`${channel.name}\\``",
+                "variable5": "`Все Бот чаты:\\n> ${leftb}`",
+                "variable6": "``"
+            },
+            "adddj": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, добавьте роль через упоминание, @role!`",
+                "variable2": "`${emoji.msg.ERROR} Кажется, что Роли не существует на этом Сервере!`",
+                "variable3": "`${emoji.msg.ERROR} Эта роль уже есть в списке!`",
+                "variable4": "`${emoji.msg.SUCCESS} Добавлена DJ-роль \\`${role.name}\\``",
+                "variable5": "`Все DJ-роль:\\n> ${leftb}`",
+                "variable6": "``"
+            },
+            "afk": {
+                "variable1": "`**Успешно __${player.get(`afk`) ? `Включено`: `Отключено`}__ Афк режим**`",
+                "variable2": "`**Я сейчас${player.get(`afk`) ? `` : ` not`} остаюсь афк в канале, даже когда ничего играть не будет!**`",
+                "variable3": "``"
+            },
+            "defaultautoplay": {
+                "variable1": "`**Успешно __${client.settings.get(message.guild.id, `defaultap`) ? `Включено`: `Отключено`}__ Автовоспроизведение по умолчанию = вкл.**`",
+                "variable2": "`**Я сейчас${client.settings.get(message.guild.id, `defaultap`) ? `` : ` not`} использовать автопроизведение = вкл. on 1. Запускайте песню!**`",
+                "variable3": "``"
+            },
+            "autoresume": {
+                "variable1": "`**Успешно __${client.settings.get(message.guild.id, `autoresume`) ?`Включено`: `Отключено`}__ система автоматического возобновления = вкл.**`",
+                "variable2": "`**Я сейчас${client.settings.get(message.guild.id, `autoresume`) ? `` : ` not`} восстановила очередь - после перезагрузки бота!**`",
+                "variable3": "``"
+            },
+            "defaultequalizer": {
+                "variable1": "`**Успешно __${client.settings.get(message.guild.id, `defaulteq`) ? `Включено`: `Отключено`}__ Эквалайзер по умолчанию (Music)**`",
+                "variable2": "`**Я сейчас${client.settings.get(message.guild.id, `defaulteq`) ? `` : ` not`} использую Эквалайзер по умолчанию `Music` on 1. Запускайте песню!**`",
+                "variable3": "``"
+            },
+            "defaultvolume": {
+                "variable1": "`${emoji.msg.ERROR} Ты не можешь изменить по умолчанию громкость`",
+                "variable2": "`**Текущая громкость по умолчанию: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+                "variable3": "`${emoji.msg.ERROR} Вы не можете добавить громкость по умолчанию`",
+                "variable4": "`*Это должно быть **Число***\\n**Текущая громкость по умолчанию: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+                "variable5": "`${emoji.msg.ERROR} Вы не можете добавить громкость по умолчанию`",
+                "variable6": "`* Это должно быть между \\`150\\` и \\`1\\`*\\n**Текущая громкость по умолчанию: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+                "variable7": "`**Успешно установлена громкость по умолчанию на: \\`${client.settings.get(message.guild.id, `defaultvolume`)}%\\`**`",
+                "variable8": "``"
+            },
+            "prefix": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, укажите новый префикс!`",
+                "variable2": "`Текущий префикс: \\`${prefix}\\``",
+                "variable3": "`${emoji.msg.ERROR} Префикс не может иметь два пробела`",
+                "variable4": "`${emoji.msg.ERROR} Префикс не может быть длиннее, чем  \\`5\\` символов`",
+                "variable5": "`${emoji.msg.SUCCESS} Установлен новый префикс: **\\`${args[0]}\\`**`",
+                "variable6": "``"
+            },
+            "removebotchat": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, добавьте канал через упоминание, например: #channel! или через <#id>`",
+                "variable2": "`${emoji.msg.ERROR} Кажется, что Канал не существует на этом Сервере!`",
+                "variable3": "`${emoji.msg.ERROR} Этого канала нет в настройках канала бота!`",
+                "variable4": "`${emoji.msg.SUCCESS} Удален Бот-Чат \\`${channel.name}\\``",
+                "variable5": "`Все оставшиеся Бот-Чаты:\\n> ${leftb}`",
+                "variable6": "``"
+            },
+            "removedj": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, добавьте роль через упоминание, например: @channel или через <@&id>`",
+                "variable2": "`${emoji.msg.ERROR} Кажется, что Роли не существует на этом Сервере!`",
+                "variable3": "`${emoji.msg.ERROR} Эта роль уже является DJ-ролью!`",
+                "variable4": "`${emoji.msg.SUCCESS} Удалена DJ-роль \\`${role.name}\\``",
+                "variable5": "`Все оставшиеся Dj-роли:\\n> ${leftb}`",
+                "variable6": "``"
+            },
+            "reset": {
+                "variable1": "`${emoji.msg.ERROR} У вас нет разрешения на эту команду! *Только владелец сервера*`",
+                "variable2": "`Вы действительно хотите сбросить все НАСТРОЙКИ?`",
+                "variable3": "`*Ответьте на это сообщение:* **__\\`yes\\`__**`",
+                "variable4": "`${emoji.msg.SUCCESS} Сброшено все до заводского состояния`",
+                "variable5": "`Префикс теперь снова: \\`${config.prefix}\\`\\nНету больше DJ-роли, Нету больше сетапов, Нету больше музыкального канала`",
+                "variable6": "`${emoji.msg.ERROR} Отмена причина: Не нужное слово / Время вышло!`",
+                "variable7": "``"
+            },
+            "togglepruning": {
+                "variable1": "`**Успешно __${client.settings.get(message.guild.id, `playmsg`) ? `Включено` : `Отключено`}__ Отправка сообщения воспроизведения**`",
+                "variable2": "`**Я сейчас${client.settings.get(message.guild.id, `playmsg`) ? `` : ` не`} отправляю сообщения с помощью кнопок при запуске песни**`",
+                "variable3": "``"
+            },
+            "toggleunknowncommandinfo": {
+                "variable1": "`${emoji.msg.SUCCESS} ${client.settings.get(message.guild.id, `unkowncmdmessage`) ? `Включено`: `Отключено`} Неизвестная информация о команде`",
+                "variable2": "``"
+            },
+            "setup-embed": {
+                "variable1": "`Что вы хотите сделать?`",
+                "variable2": "`1️⃣ **==** Изменить **цвет** эмбеда\n\n\n2️⃣ **==** Изменить **изображение** эмбеда\n\n\n\n3️⃣ **==** Изменить **текст нижнего колонтитула** эмьеда\\n\\n4️⃣ **==** ${es.thumb ? `**Отключение** картинок для эмбедов` : `**Включить** картинки для эмбедов'`}\\n\\n\\n\\n*Реагируйте с помощью правильных эмодзи на правильные действия*`",
+                "variable3": "`<:error:951379674418782218> У меня нет полномочий для добавления реакций`",
+                "variable4": "`<:error:951379674418782218> Ваше время вышло`",
+                "variable5": "`Какой цвет вам нужен?`",
+                "variable6": "`Send it now!\\n\\nОбязательно используйте действующий **HEX CODE** Например: **\\`#ffee22\\`** __с__. \\`#\\``",
+                "variable7": "`<:error:951379674418782218> Пожалуйста, добавьте действующий ЦВЕТ`",
+                "variable8": "`Обратите внимание, что HEX COLOR выглядит следующим образом: \\`#ffee22\\``",
+                "variable9": "`<:error:951379674418782218> Пожалуйста, добавьте действующий ЦВЕТ`",
+                "variable10": "`Обратите внимание, что HEX COLOR выглядит следующим образом: \\`#ffee22\\``",
+                "variable11": "`${emoji.msg.SUCCESS} The new Embed Color is: \\`${es.color}\\``",
+                "variable12": "`<:error:951379674418782218> Ein Fehler ist aufgetreten, please contact: `Tomato#6966``",
+                "variable13": "``",
+                "variable14": "`<:error:951379674418782218> Ваше время вышло`",
+                "variable15": "`Which Image do you want to use?`",
+                "variable16": "`Note that you may not delete this image from where ever the source is from! A Link is appreciated`",
+                "variable17": "`${emoji.msg.SUCCESS} The new Embed Image is: \\`${es.link}\\``",
+                "variable18": "`<:error:951379674418782218> Ein Fehler ist aufgetreten, please contact: `Tomato#6966``",
+                "variable19": "``",
+                "variable20": "`<:error:951379674418782218> Please add a valid IMAGE-LINK`",
+                "variable21": "`<:error:951379674418782218> Please add a valid IMAGE-LINK`",
+                "variable22": "`${emoji.msg.SUCCESS} The new Embed Image is: \\`${es.link}\\``",
+                "variable23": "`<:error:951379674418782218> Ein Fehler ist aufgetreten, please contact: `Tomato#6966``",
+                "variable24": "``",
+                "variable25": "`<:error:951379674418782218> Ваше время вышло`",
+                "variable26": "`What should be your new Footer Text?`",
+                "variable27": "`Note that it's the Text that's very small and at the bottom of an Embed\\n\\nEnter the Text now!`",
+                "variable28": "`<:error:951379674418782218> Ein Fehler ist aufgetreten, please contact: `Tomato#6966``",
+                "variable29": "``",
+                "variable30": "`<:error:951379674418782218> Ваше время вышло`",
+                "variable31": "`${emoji.msg.SUCCESS} The Thumbnail is now ${es.thumb ? `enabled`: `disabled`}`",
+                "variable32": "`${es.thumb ? `Ich werde nun add Thumbnails to each Embed Message`: `Ich werde nun **not** add a Thumbnail to Embed Messages`}`",
+                "variable33": "`<:error:951379674418782218> Ein Fehler ist aufgetreten, please contact: `Tomato#6966``",
+                "variable34": "``",
+                "variable35": "`<:error:951379674418782218> Bitte kontaktiere `Tomato#6966``",
+                "variable36": "``"
+            },
+            "setup-language": {
+                "variable1": "`***Выберите то, что вам нужно в \\`Выборе\\` ниже!***`",
+                "variable2": "`<:error:945004173454348288> Отменена настройка!`",
+                "variable3": "`Выберите новый язык`",
+                "variable4": "`Текущий язык: **${languages[ls]}**\\n\\n***Обратите внимание, что эта Система еще не закончена!***\\n**Только частично рабочие языки:**\\n> \\`Английский\\`, \\`Немецкий (Русский)\\``",
+                "variable5": "`${emoji.msg.SUCCESS} Новый язык **${languages[lang]}** (\\`${lang})\\``",
+                "variable6": "`${emoji.msg.SUCCESS} Сброс языка | Новым языком есть **🇬🇧 English** (en)`",
+                "variable7": "`📑 Текущий язык это ${thesettings}`",
+                "variable8": "`\\`\\`\\` ${e.message ? e.message : e.stack ? String(e.stack).substr(0, 2000) : String(e).substr(0, 2000)}\\`\\`\\``"
+            }
+        },
+        "customqueues": {
+            "savedqueue": {
+                "variable1": "`${emoji.msg.ERROR} You didn't entered a TYPE`",
+                "variable2": "`Usage: \\`${prefix}savedqueue <Type> <Name> [Options]\\`\\nAvailable Types:\\n\\`create\\`, \\`addcurrenttrack\\`, \\`addcurrentqueue\\`, \\`removetrack\\`, \\`removedupes\\`, \\`showall\\`, \\`createsave\\`, \\`delete\\`, \\`showdetails\\`, \\`play\\`, \\`shuffle\\``",
+                "variable3": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable4": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable5": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable6": "`Maximum Length is \\`10\\``",
+                "variable7": "`${emoji.msg.ERROR} Your Queue already exists!`",
+                "variable8": "`Delete it: \\`${prefix}savedqueue delete ${Name}\\`\\nShow its content: \\`${prefix}savedqueue showdetails ${Name}`",
+                "variable9": "`${emoji.msg.SUCCESS} Created ${Name}`",
+                "variable10": "`Add the current **Queue** onto it: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nAdd the current **Track** onto it: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+                "variable11": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable12": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable13": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable14": "`Maximum Length is \\`10\\``",
+                "variable15": "`${emoji.msg.ERROR} Your Queue does not exists yet!`",
+                "variable16": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable17": "`${emoji.msg.ERROR} There is nothing playing`",
+                "variable18": "`${emoji.msg.ERROR} There is nothing playing!`",
+                "variable19": "`There are now: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+                "variable20": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable21": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable22": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable23": "`Maximum Length is \\`10\\``",
+                "variable24": "`${emoji.msg.ERROR} Your Queue does not exists yet!`",
+                "variable25": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable26": "`${emoji.msg.ERROR} There is nothing playing`",
+                "variable27": "`${emoji.msg.ERROR} The Queue is Empty!`",
+                "variable28": "`${emoji.msg.SUCCESS} Added ${tracks.length} Tracks onto the Queue \\`${Name}\\``",
+                "variable29": "`There are now: \\`${newqueue.length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+                "variable30": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable31": "`Usage: \\`${prefix}savedqueue removetrack <Name> [Options]\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable32": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable33": "`Maximum Length is \\`10\\``",
+                "variable34": "`${emoji.msg.ERROR} You didn't entered an Option (the Track you want to remove (ID OF IT))`",
+                "variable35": "`See all your Tracks: \\`${prefix}savedqueue showdetails ${Name}\\`Usage: \\`${prefix}savedqueue removetrack ${Name} <Song number>\\``",
+                "variable36": "`${emoji.msg.ERROR} Your Queue is not existing!`",
+                "variable37": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable38": "`${emoji.msg.ERROR} Your provided Option is out of Range (\\`0\\` - \\`${tracks.length-1}\\`)`",
+                "variable39": "`See all your Tracks: \\`${prefix}savedqueue showdetails ${Name}\\`Usage: \\`${prefix}savedqueue removetrack ${Name} <Song number>\\``",
+                "variable40": "`There are now: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+                "variable41": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable42": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable43": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable44": "`Maximum Length is \\`10\\``",
+                "variable45": "`${emoji.msg.ERROR} Your Queue is not existing!`",
+                "variable46": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable47": "`${emoji.msg.ERROR} Your Saved-Queue ${Name} is Empty!`",
+                "variable48": "`Add the current **Queue** onto it: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nAdd the current **Track** onto it: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+                "variable49": "`There are now: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+                "variable50": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable51": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable52": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable53": "`Maximum Length is \\`10\\``",
+                "variable54": "`${emoji.msg.ERROR} Your Queue is not existing!`",
+                "variable55": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable56": "`${emoji.msg.ERROR} Your Saved-Queue ${Name} is Empty!`",
+                "variable57": "`Add the current **Queue** onto it: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nAdd the current **Track** onto it: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+                "variable58": "`There are now: \\`${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks\\`\\n\\nPlay it with: \\`${prefix}savedqueue play ${Name}\\``",
+                "variable59": "`${emoji.msg.ERROR} You don't have any Queues saved yet`",
+                "variable60": "`Create one with: \\`${prefix}savedqueue create <SavedQueueName>\\``",
+                "variable61": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable62": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable63": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable64": "`Maximum Length is \\`10\\``",
+                "variable65": "`${emoji.msg.ERROR} Your Queue already exists!`",
+                "variable66": "`Delete it: \\`${prefix}savedqueue delete ${Name}\\`\\nShow its content: \\`${prefix}savedqueue showdetails ${Name}`",
+                "variable67": "`${emoji.msg.ERROR} There is nothing playing`",
+                "variable68": "`${emoji.msg.ERROR} The Queue is Empty!`",
+                "variable69": "`${emoji.msg.SUCCESS} Created ${Name} and Added ${tracks.length} Tracks to it`",
+                "variable70": "`Play it with: \\`${prefix}savedqueue play ${Name}\\`\\nAdd the current **Queue** onto it: \\`${prefix}savedqueue addcurrentqueue ${Name}\\`\\nAdd the current **Track** onto it: \\`${prefix}savedqueue addcurrenttrack ${Name}\\``",
+                "variable71": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable72": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable73": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable74": "`Maximum Length is \\`10\\``",
+                "variable75": "`${emoji.msg.ERROR} Your Queue does not exists yet!`",
+                "variable76": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable77": "`${emoji.msg.SUCCESS} Deleted the Queue \\`${Name}\\``",
+                "variable78": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable79": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable80": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable81": "`Maximum Length is \\`10\\``",
+                "variable82": "`${emoji.msg.ERROR} You need to join a voice channel.`",
+                "variable83": "`${emoji.msg.ERROR} You need to be in my voice channel to use this command!`",
+                "variable84": "`Channelname: \\`${message.guild.channels.cache.get(player.voiceChannel).name}\\``",
+                "variable85": "`${emoji.msg.ERROR} You need to be in my voice channel to use this command!`",
+                "variable86": "`Channelname: \\`🔈 ${mechannel.name}\\``",
+                "variable87": "`${emoji.msg.ERROR} Your Queue does not exists Yet!`",
+                "variable88": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable89": "`Attempting to Load ${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks`",
+                "variable90": "`It might take around about \\`${Math.ceil(client.queuesaves.get(message.author.id, `${Name}`).length / 2)} Seconds\\``",
+                "variable91": "`${emoji.msg.SUCCESS} Loaded ${client.queuesaves.get(message.author.id, `${Name}`).length} Tracks onto the current Queue`",
+                "variable92": "`${emoji.msg.ERROR} You didn't entered a Saved-Queue-Name`",
+                "variable93": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nName Information:\\n\\`Can be anything with maximum of 10 Letters\\``",
+                "variable94": "`${emoji.msg.ERROR} Your Saved-Queue-Name is too long!`",
+                "variable95": "`Maximum Length is \\`10\\``",
+                "variable96": "`${emoji.msg.ERROR} Your Queue is not existing!`",
+                "variable97": "`Create it with: \\`${prefix}savedqueue create ${Name}\\``",
+                "variable98": "`${emoji.msg.ERROR} You didn't entered a **valid** TYPE`",
+                "variable99": "`Usage: \\`${prefix}savedqueue <Type> <Name>\\`\\nValid Types:\\n\\`create\\`, \\`addcurrenttrack\\`, \\`addcurrentqueue\\`, \\`removetrack\\`, \\`removedupes\\`, \\`showall\\`, \\`createsave\\`, \\`delete\\`, \\`showdetails\\`, \\`play\\`, \\`shuffle\\``",
+                "variable100": "``"
+            }
+        },
+        "filter": {
+            "3d": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`8D\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "bassboost": {
+                "variable1": "`${emoji.msg.ERROR} Уровень усиления басов должен быть одним из следующих: \\`none\\`, \\`low\\`, \\`medium\\`, \\`high\\`, \\`earrape\\``",
+                "variable2": "`Используйте: \\`${prefix}bassboost <Level>\\`\\n\\nПример: \\`${prefix}bassboost low\\``",
+                "variable3": "`${emoji.msg.SUCCESS} Bassboost установлено значение на \\`${level}\\``",
+                "variable4": "`Примечание. * Может пройти до 5 секунд, прежде чем вы услышите новый эквалайзер.*`",
+                "variable5": "``"
+            },
+            "china": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`china\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "chipmunk": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`chipmunk\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "cleareq": {
+                "variable1": "`${emoji.msg.SUCCESS} Сброс эквалайзера`",
+                "variablex_2": "`${emoji.msg.equalizer} Фильтр: `", "variable2": "`${emoji.msg.ERROR} Ничего`",
+                "variablex_3": "`${emoji.msg.equalizer} Эквалайзер: `", "variable3": "`${player.get(`eq`)}`",
+                "variable4": "`Примечание. * Может пройти до 5 секунд, прежде чем вы услышите новый эквалайзер.*`",
+                "variable5": "``"
+            },
+            "clearfilter": {
+                "variable1": "`${emoji.msg.SUCCESS} Сброс эквалайзера`",
+                "variablex_2": "`${emoji.msg.equalizer} Фильтр: `", "variable2": "`${emoji.msg.ERROR} Ничего`",
+                "variablex_3": "`${emoji.msg.equalizer} Эквалайзер: `", "variable3": "`${player.get(`eq`)}`",
+                "variable4": "`Примечание. * Может пройти до 5 секунд, прежде чем вы услышите новые ФИЛЬТРЫ.*`",
+                "variable5": "``"
+            },
+            "darthvader": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`darthvader\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "equalizer": {
+                "variable1": "`${emoji.msg.ERROR} Уровень эквалайзера должен быть одним из следующих`",
+                "variable2": "`Доступные изминения эквалайзера:\\n\\`music\\`, \\`pop\\`, \\`electronic\\`, \\`classical\\`, \\`rock\\`, \\`full\\`, \\`light\\`, \\`gaming\\`, \\`bassboost\\`, \\`earrape\\`\\n\\nUsage: \\`${prefix}equalizer <Equalizer>\\`\\n\\nПример: \\`${prefix}equalizer music\\``",
+                "variable3": "`${emoji.msg.SUCCESS} Установите эквалайзер на \\`${level}\\``",
+                "variable4": "`Примечание. * Может пройти до 5 секунд, прежде чем вы услышите новый эквалайзер.*`",
+                "variable5": "``"
+            },
+            "nightcore": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`NIGHTCORE\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "pitch": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, включите множитель`",
+                "variable2": "`Usage: \\`${prefix}pitch <Multiplicator>\\`\\n\\nПример: \\`${prefix}pitch 1.2\\``",
+                "variable3": "`${emoji.msg.ERROR} Множитель должен быть числом`",
+                "variable4": "`Usage: \\`${prefix}pitch <Multiplicator>\\`\\n\\nПример: \\`${prefix}pitch 1.2\\``",
+                "variable5": "`${emoji.msg.ERROR} Множитель вне диапазона | Должно быть от 0 до 3`",
+                "variable6": "`Usage: \\`${prefix}pitch <Multiplicator>\\`\\n\\nПример: \\`${prefix}pitch 1.2\\``",
+                "variable7": "`${emoji.msg.SUCCESS} Шаг установлен на \\`${args[0]}\\``",
+                "variable8": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable9": "``"
+            },
+            "rate": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, включите множитель`",
+                "variable2": "`Usage: \\`${prefix}speed <Multiplicator>\\`\\n\\nПример: \\`${prefix}speed 1.5\\``",
+                "variable3": "`${emoji.msg.ERROR} Множитель должен быть числом`",
+                "variable4": "`Usage: \\`${prefix}speed <Multiplicator>\\`\\n\\nПример: \\`${prefix}speed 1.5\\``",
+                "variable5": "`${emoji.msg.ERROR} Множитель вне диапазона | Должно быть от 0 до 3`",
+                "variable6": "`Usage: \\`${prefix}speed <Multiplicator>\\`\\n\\nПример: \\`${prefix}speed 1.5\\``",
+                "variable7": "`${emoji.msg.SUCCESS} Множитель скорости был установлен на \\`${args[0]}\\``",
+                "variable8": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable9": "``"
+            },
+            "slowmo": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`SLOWMO\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "speed": {
+                "variable1": "`${emoji.msg.ERROR} Пожалуйста, включите множитель`",
+                "variable2": "`Usage: \\`${prefix}rate <Multiplicator>\\`\\n\\nПример: \\`${prefix}rate 1.5\\``",
+                "variable3": "`${emoji.msg.ERROR} Множитель должен быть числом`",
+                "variable4": "`Usage: \\`${prefix}rate <Multiplicator>\\`\\n\\nПример: \\`${prefix}rate 1.5\\``",
+                "variable5": "`${emoji.msg.ERROR} Множитель вне диапазона | Должно быть от 0 до 3`",
+                "variable6": "`Usage: \\`${prefix}rate <Multiplicator>\\`\\n\\nПример: \\`${prefix}rate 1.5\\``",
+                "variable7": "`${emoji.msg.SUCCESS} Множитель скорости был установлен на \\`${args[0]}\\``",
+                "variable8": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable9": "``"
+            },
+            "tremolo": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`TREMOLO\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "vibrate": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`VIBRATO\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            },
+            "vibrato": {
+                "variable1": "`${emoji.msg.SUCCESS} Применение фильтра \\`VIBRATE\\``",
+                "variable2": "`Примечание. *Может пройти до 5 секунд, прежде чем вы услышите фильтр*.`",
+                "variable3": "``"
+            }
+        },
+        "owner": {
+            "changeavatar": {
+                "variable1": "`${emoji.msg.ERROR} Вам не разрешено выполнять эту команду`",
+                "variable2": "`Ты должен быть одним из тех парней.: ${config.ownerIDS.map(id => `<@${id}>`)}`",
+                "variable3": "`${emoji.msg.SUCCESS} Успешно изменен аватар бота!`",
+                "variable4": "``",
+                "variable5": "`${emoji.msg.ERROR} Ошибка | Не удалось использовать ваше изображение в качестве аватара, убедитесь, что оно в \\`png\\` / \\`jpg\\``",
+                "variable6": "`${emoji.msg.SUCCESS} Успешно изменен аватар бота!`",
+                "variable7": "``",
+                "variable8": "`${emoji.msg.ERROR} Ошибка | Не удалось использовать ваше изображение в качестве аватара, убедитесь, что оно в \\`png\\` / \\`jpg\\` / \\`webp\\``",
+                "variable9": "`Пример: \\`${prefix}changeavatar <AVATARLINK/IMAGE>\\``",
+                "variable10": "``"
+            },
+            "changename": {
+                "variable1": "`${emoji.msg.ERROR} Вам не разрешено выполнять эту команду`",
+                "variable2": "`Ты должен быть одним из тех парней.: ${config.ownerIDS.map(id => `<@${id}>`)}`",
+                "variable3": "`${emoji.msg.ERROR} Вам необходимо добавить новое имя бота`",
+                "variable4": "`Пример: \\`${prefix}changename <New Bot Name>\\``",
+                "variable5": "`${emoji.msg.ERROR} Имя бота слишком длинное, не может быть больше 32 букв!`",
+                "variable6": "`${emoji.msg.SUCCESS} Сменил имя на: \\`${user.username}\\``",
+                "variable7": "``",
+                "variable8": "``"
+            },
+            "changestatus": {
+                "variable1": "`${emoji.msg.ERROR} Вам не разрешено выполнять эту команду`",
+                "variable2": "`Ты должен быть одним из тех парней.: ${config.ownerIDS.map(id => `<@${id}>`)}`",
+                "variable3": "`Что вы хотите делать?`",
+                "variable4": "`1️⃣ **== Изменение** Статус **Текст**\\n\\n2️⃣ **== Изменение** статуса **Тип**\\n\\n3️⃣ **== Изменение** статуса **URL**\\n\\n🟢 **==** Изменить состояние Online/Idle/DnD\\n\\n\\n\\n*Реагируйте правильными эмодзи в соответствии с правильным действием*`",
+                "variable5": "`${emoji.msg.ERROR} Ошибка | Отсутствующие разрешения на добавление реакций`",
+                "variable6": "`${emoji.msg.ERROR} Ошибка | Ваше время истекло`",
+                "variable7": "`Какой текст следует отображать в статусе?`",
+                "variable8": "`${emoji.msg.ERROR}  Ошибка Запись файла`",
+                "variable9": "``",
+                "variable10": "`${emoji.msg.SUCCESS}  Успешная установка нового статуса`",
+                "variable11": "`${emoji.msg.ERROR} Ошибка | Ваше время истекло`",
+                "variable12": "`Какой тип вы хотите использовать?`",
+                "variable13": "`${emoji.msg.ERROR} Ошибка | Ваше время истекло`",
+                "variable14": "`${emoji.msg.ERROR}  Ошибка Запись файла`",
+                "variable15": "``",
+                "variable16": "`${emoji.msg.SUCCESS}  Успешная установка нового статуса`",
+                "variable17": "`Какой тип вы хотите использовать?",
+                "variable18": "`${emoji.msg.SUCCESS}  Успешная установка нового статуса`",
+                "variable19": "`${emoji.msg.SUCCESS}  Успешная установка нового статуса`",
+                "variable20": "`${emoji.msg.SUCCESS}  Успешная установка нового статуса`",
+                "variable21": "`${emoji.msg.ERROR} Ошибка | Ваше время истекло`",
+                "variable22": "`Какой URL я должен отображать в статусе, если я веду потоковое вещание?`",
+                "variable23": "`${emoji.msg.ERROR} Нет валидного URL`",
+                "variable24": "`${emoji.msg.ERROR} Нет валидного Twitch URL`",
+                "variable25": "`${emoji.msg.ERROR}  Ошибка Запись файла`",
+                "variable26": "``",
+                "variable27": "`${emoji.msg.SUCCESS}  Успешная установка нового статуса`",
+                "variable28": "`${emoji.msg.ERROR} Ошибка | Ваше время истекло`",
+                "variable29": "`${emoji.msg.ERROR} Ошибка | Пожалуйста сообщите `</>#8181``",
+                "variable30": "``"
+            },
+            "cmdreload": {
+                "variable1": "`${emoji.msg.ERROR} Вам не разрешено выполнять эту команду! Только владельцу разрешено запускать эту команду`",
+                "variable2": "`${emoji.msg.ERROR} Пожалуйста, приведите аргументы`",
+                "variable3": "`${emoji.msg.ERROR} Не удалось найти: \\`${args[0]}\\``",
+                "variable4": "`${emoji.msg.SUCCESS} Перезагружено \\`${args[0]}\\``",
+                "variable5": "`${emoji.msg.ERROR} Не удалось перезагрузить: \\`${args[0]}\\``",
+                "variable6": "``"
+            },
+            "eval": {
+                "variable1": "`${emoji.msg.ERROR}  Ошибка | Вам не разрешено выполнять эту команду! Только **\\`</#8181>\\`** разрешено запускать эту команду`",
+                "variable2": "`${emoji.msg.ERROR}  Ошибка | Вы должны включить, по крайней мере, один аргумент`",
+                "variable3": "`Kamado Tanjiro | Eval`",
+                "variable4": "`\\`\\`\\`` + splitDescription[0] + `\\`\\`\\``",
+                "variable5": "`${emoji.msg.ERROR}  Ошибка | Произошла ошибка!`",
+                "variable6": "``"
+            },
+            "leaveserver": {
+                "variable1": "`${emoji.msg.ERROR} Вам не разрешено выполнять эту команду! Только владельцу разрешено запускать эту команду`",
+                "variable2": "`${emoji.msg.ERROR} Вы должны добавить, какую сервер который я должен покинуть.`",
+                "variable3": "`Пример: \\`${prefix}leaveserver <SERVERID>\\``",
+                "variable4": "`${emoji.msg.ERROR} Не смог найти сервер для выхода из него`",
+                "variable5": "`${emoji.msg.SUCCESS} Покинул ${g.name} | ${g.id}`",
+                "variable6": "``"
+            }
+        }
+    },
+    "common": {
+        "deaf": "❌ Вы не можете выполнить эту команду, пока вы `Deafen/Заглушенные` / `Зашлушены сервером`",
+        "usernotfound": "❌ Не удалось найти пользователя",
+        "rolenotfound": "❌ Не удалось найти роль",
+        "erroroccur": "❌ Произошла ошибка",
+        "disabled": {
+            "title": "❌ **Это команда сейчас отключена**",
+            "description": "**Администратор может включить его с помощью: `{prefix}setup-commands`, но ему впадлу это делать**"
+        },
+        "nothing_playing": "❌ **Я сейчас ничего не играю!**",
+        "join_vc": "❌ **Сначала вам нужно присоединиться к голосовому каналу!**",
+        "wrong_vc": "❌ **Вы должны быть в моем голосовом канале, чтобы использовать эту команду!**",
+        "not_connected": "❌ **Я больше не подключен к голосовому каналу!**",
+        "dms_disabled": "❌ **Ваши личные сообщения отключены!**",
+        "example": "Для примера",
+        "botchat": {
+            "title": "❌ **Ошибка | Не в чате ботов!**",
+            "description": "**На этом сервере настроен чат с ботами! Попробуйте использовать команды бота здесь:**"
+        },
+        "ping": "👍 **Чтобы увидеть все типы команд пропишите: `{prefix}help`!**",
+        "unknowncmd": {
+            "title": "❌ **Неизвестная команда, может пропишите: `{prefix}help`!**",
+            "description": "**Префикс этого сервера: `{prefix}`**\n\n*Вы также можете **упомянуть** меня, и я покажу вам мой префикс*\n\n**Чтобы посмотреть все команды, напишите `{prefix}help [cmd]`!**\n\n**Чтобы посмотреть все виды настроек пропишите `{prefix}setup`!**"
+        },
+        "cooldown": "❌ Подождите еще {time} секунд, прежде чем повторно использовать команду `{commandname}`.",
+        "premium": {
+            "title": "❌ **Это команда доступна только премиум серверу!** 💰",
+            "description": "Администратор может запросить этот сервер как `Премиум статус`, набрав: `{prefix}premium`"
+        },
+        "permissions": {
+            "title": "❌ **Вам не разрешено запускать эту команду!**",
+            "description": "**Вам нужны эти разрешения:**"
+        },
+        "missingroles": {
+            "title": "❌ **Вам не разрешено запускать эту команду**",
+            "description": "**Вам нужны эти роли:**",
+            "description2": "**Вы должны быть Заявителем текущей воспроизводимой дорожки!**\nOR: **Вам нужны эти роли:**"
+        },
+        "nodjs": "DJ-роли не настроены! Каждый может использовать Музыкальные команды.",
+        "nobotchannels": "Каналы ботов не настроены! Команды можно использовать во всех каналах.",
+        "somethingwentwrong": "❌ **Произошла ошибка при выполнении этой команды!**"
+    },
+    "servers": {
+        "title": "Все **`[{guildsin}] сервера` {bottag}**",
+        "map": "**`{guildname} ({guildid})`・**Участников:** `{guildmemberCount}`**",
+        "variable1": "`\\`\\`\\` ${e.message ? e.message : e.stack ? String(e.stack).substr(0, 2000) : String(e).substr(0, 2000)}\\`\\`\\``"
+    },
+    "handlers": {
+        "erelaevents": {
+            "client_events": {
+                "variable3": "`${emoji.msg.ERROR} Queue has ended | Channel Empty`",
+                "variable4": "`I left the Channel: ${client.channels.cache.get(player.voiceChannel).name} because the Channel got empty`"
+            },
+            "events": {
+                "variable1": "`${player.get(`autoplay`) ? `Enabled` : `Disabled`} the Autoplay feature`"
+            }
+        },
+        "functionsjs": {
+            "functions": {
+                "variable1": "`I left the Channel: \\`${client.channels.cache.get(player.voiceChannel).name}\\` because the Queue was empty for: \\`${ms(config.settings.LeaveOnEmpty_Queue.time_delay, { long: true })}\\``",
+                "variablex_2": "`NO ROLES ADDED`","variable2": "`Add them with: \\`${client.settings.get(guild.id, `prefix`)} setup-roster\\``",
+                "variablex_3": "`**__${role.name.toUpperCase()} [${[...role.members.values()].length}]__**`","variable3": "[...role.members.values()].length === 0 ? `> No one has this Role` : role.members.map(member => `${the_roster_db.get(guild.id, `rosteremoji`)} <@${member.user.id}> | \\`${member.user.tag}\\``).join(`\\n`).substr(0, leftnum <= 1024 ? leftnum : 1024), the_roster_db.get(guild.id, `inline`)",
+                "variable4": "`Pick your Station, by typing in the right `INDEX` Number!`",
+                "variable4_1": "`Example: `?radio 11``",
+                "variable5": "`Pick your Station, by typing in the right `INDEX` Number!`",
+                "variable5_1": "`Example: `?radio 69``",
+                "variable6": "`Pick your Station, by typing in the right `INDEX` Number!`",
+                "variable6_1": "`Example: `?radio 180``",
+                "variable7": "`${emoji.msg.ERROR} Found nothing related for the latest Song!`",
+                "variable8": "`${emoji.msg.ERROR} Queue has ended.`",
+                "variable9": "`I left the Channel: \\`${client.channels.cache.get(player.voiceChannel).name}\\` because the Queue was empty for: \\`${ms(config.settings.LeaveOnEmpty_Queue.time_delay, { long: true })}\\``",
+                "variable10": "`${user.member.user} | ${emoji.msg.ERROR} Please give me the permission, `MANGE CHANNELS` --> I need to be able to create Channels ...`",
+                "variable11": "`${user.member.user} | ${emoji.msg.ERROR} Please give me the permission, \\`MANGE CHANNELS\\` --> I need to be able to create Channels ...`",
+                "variable12": "-"
+            }
+        },
+        "playermanagerjs": {
+            "playermanager": {
+                "variable1": "`${emoji.msg.ERROR} I need permissions to join your channel`",
+                "variable2": "`${emoji.msg.ERROR} I need permissions to speak in your channel`",
+                "variable3": "`${emoji.msg.ERROR} No valid search Term? ... Please Contact: `Tomato#6966``"
+            }
+        },
+        "playermanagers": {
+            "playlist": {
+                "variable1": "`${emoji.msg.ERROR} Error | There was an error while searching:`",
+                "variable2": "``",
+                "variable3": "`Please retry!`",
+                "variable4": "`:thumbsup: **Added Playlist 🩸 [${res.playlist.name}](${res.playlist.uri})**`"
+            },
+            "playtop": {
+                "variable1": "`Please retry!`",
+                "variable2": "`:thumbsup: **Queued :notes: [${res.tracks[0].title}](${res.tracks[0].uri})**`",
+                "variable3": "`Please retry!`",
+                "variable4": "`**`+res.playlist.name+`**`",
+                "variablex_5": "`Estimated time until playing`","variable5": "time > 10 ? format(time).split(` | `)[0] : `NOW`",
+                "variable6": "`Added: \\`${res.tracks[0].title}\\` - to the Queue\\n**Channel:** ${res.tracks[0].author}\\n**Song Duration:** ${res.tracks[0].isStream ? `LIVE STREAM` : format(res.tracks[0].duration).split(` | `)[0]}\\n**Estimated time until playing:** ${time}\\n**Position in queue:** ${player.queue.length}\\n${res.tracks[0].uri}`"
+            },
+            "request": {
+                "variable1": "`Please retry!`",
+                "variable2": "`Please retry!`"
+            },
+            "search": {
+                "variable1": "`${emoji.msg.ERROR} Error | There was an error while searching:`",
+                "variable2": "``",
+                "variable3": "`${emoji.msg.ERROR} Error | You didn't provide a selection`",
+                "variable4": "'${emoji.msg.ERROR} Error | Cancelled selection.'",
+                "variable5": "`:thumbsup: **Queued :notes: [${track.title}](${track.uri})**`"
+            },
+            "similar": {
+                "variable1": "`${emoji.msg.ERROR} Error | Found nothing related for the latest Song`",
+                "variable2": "`:thumbsup: **Queued :notes: [${res.tracks[0].title}](${res.tracks[0].uri})**`",
+                "variable3": "`${emoji.msg.SUCCESS} Pick your Song with the `INDEX Number``",
+                "variable4": "`${emoji.msg.ERROR} Error | You didn't provide a selection`",
+                "variable5": "'${emoji.msg.ERROR} Error | Cancelled selection.'",
+                "variable6": "`${emoji.msg.ERROR} Error | The number you provided too small or too big (1-${max}).`",
+                "variable7": "`Please retry!`",
+                "variable8": "`:thumbsup: **Queued :notes: [${track.title}](${track.uri})**`"
+            },
+            "skiptrack": {
+                "variable1": "`${emoji.msg.ERROR} Error | There was an error while searching:`",
+                "variable2": "``",
+                "variable3": "`Please retry!`"
+            },
+            "song": {
+                "variable1": "`${emoji.msg.ERROR} Error | There was an error while searching:`",
+                "variable2": "``",
+                "variable3": "`Please retry!`",
+                "variable4": "`:thumbsup: **Queued :notes: [${res.tracks[0].title}](${res.tracks[0].uri})**`",
+                "variable5": "`Please retry!`"
+            }
+        }
+    }
+}

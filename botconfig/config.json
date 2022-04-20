@@ -1,0 +1,26 @@
+{
+   "token": "discord.com/developers",
+   "prefix": "//",
+   "ownerIDS": [
+      "owner"
+   ],
+   "status": {
+      "text": "Наблюдает за  {guildcount} серверами и {membercount} участниками | Kamado Nezuko ❤️",
+      "text2": "paw meiw ❤️",
+      "type": "STREAMING",
+      "url": "https://twitch.tv/#"
+   },
+   "clientsettings": {
+      "nodes": [
+         {
+            "host": "localhost",
+            "port": 2333,
+            "password": "youshallnotpass"
+         }
+      ]
+   },
+   "spotify": {
+      "clientSecret": "spotify.com/developers",
+      "clientID": "spotify.com/developers"
+   }
+}
