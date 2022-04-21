@@ -8,7 +8,7 @@ const emoji = require(`${process.cwd()}/botconfig/emojis.json`);
 module.exports = {
   name: `premium`,
   category: `👑 Owner`,
-  description: `Requests Premium for this Server`,
+  description: `Запросы Премиум для этого сервера`,
   usage: `premium`,
   memberpermissions: [`ADMINISTRATOR`],
   type: "bot",

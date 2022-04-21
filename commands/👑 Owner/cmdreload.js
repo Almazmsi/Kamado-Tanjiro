@@ -8,7 +8,7 @@ module.exports = {
   category: `👑 Owner`,
   type: "info",
   aliases: [`cmdr`],
-  description: `Reloads a command`,
+  description: `Делает перезагрузку команды, не перезапуская бота`,
   usage: `cmdreload <CMD>`,
   run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {
     if (!config.ownerIDS.includes(message.author.id))
@@ -65,7 +65,7 @@ module.exports = {
         .setColor(es.wrongcolor)
         .setFooter(client.getFooter(es))
         .setTitle(eval(client.la[ls]["cmds"]["owner"]["cmdreload"]["variable5"]))
-        .setDescription(`Cmd is now removed from the BOT COMMANDS!\n\`\`\`${String(err.message ? err.message : e).substr(0, 1900)}\`\`\``)
+        .setDescription(`Команда теперь удален из команд бота!\n\`\`\`${String(err.message ? err.message : e).substr(0, 1900)}\`\`\``)
       ]
     });
   },

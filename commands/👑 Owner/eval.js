@@ -20,7 +20,7 @@ module.exports = {
   name: `eval`,
   category: `👑 Owner`,
   aliases: [`e`],
-  description: `eval Command`,
+  description: `Для владельца`,
   usage: `eval <CODE>`,
   type: "bot",
   run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {

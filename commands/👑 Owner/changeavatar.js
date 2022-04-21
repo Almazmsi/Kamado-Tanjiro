@@ -12,7 +12,7 @@ module.exports = {
   aliases: ["changebotavatar", "botavatar", "botprofilepicture", "botpfp"],
   cooldown: 5,
   usage: "changeavatar <Imagelink/Image>",
-  description: "Changes the Avatar of the BOT: I SUGGEST YOU TO DO IT LIKE THAT: Type the command in the Chat, attach an Image to the Command (not via link, just add it) press enter",
+  description: "Изменение аватара бота: Я предлагаю вам сделать это так: Введите команду в чате, прикрепите к команде изображение (не через ссылку, просто добавьте его) нажмите enter",
   run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {
     if (!config.ownerIDS.some(r => r.includes(message.author.id)))
       return message.channel.send({

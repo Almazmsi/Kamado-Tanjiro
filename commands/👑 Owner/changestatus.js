@@ -23,7 +23,7 @@ module.exports = {
   aliases: ["botstatus", "status"],
   cooldown: 5,
   usage: "changestatus  -->  Follow the Steps",
-  description: "Changes the Status of the BOT",
+  description: "Изменения статуса бота",
   run: async (client, message, args, cmduser, text, prefix) => {
     
     let es = client.settings.get(message.guild.id, "embed");let ls = client.settings.get(message.guild.id, "language")
@@ -38,34 +38,34 @@ module.exports = {
       async function first_layer(){
         let menuoptions = [
           {
-            value: "Status 1. Text",
-            description: `Change the first Display Text of the Status`,
+            value: "Status 1. Текст",
+            description: `Изменение первого отображаемого текста статуса`,
             emoji: "📝"
           },
           {
-            value: "Status 2. Text",
-            description: `Change the second Display Text of the Status`,
+            value: "Status 2. текст",
+            description: `Изменения второго отображаемого текста статуса`,
             emoji: "📝"
           },
           {
-            value: "Status Type",
-            description: `Change the Status-Type to: Playing/Listening/...`,
+            value: "Тип статуса",
+            description: `Измените тип состояния на: Играет/Слушает/...`,
             emoji: "🔰"
           },
           {
-            value: "Status URL",
-            description: `If Status-State = Streaming, change the Twitch URL`,
+            value: "URL статуса",
+            description: `Если Состоясние статуса = Стримит то, измените Twitch URL`,
             emoji: "🔗"
           },
           {
-            value: "Status State",
-            description: `Change the Status-State to: Online/Idle/Dnd/Streaming`,
+            value: "Состояние статуса",
+            description: `Измените статус состояния на: Ойнлайн/Неактивен/Не беспокоить/Стримит`,
             emoji: "🔖"
           },
           {
-            value: "Cancel",
-            description: `Cancel and stop the Ai-Chat-Setup!`,
-            emoji: "862306766338523166"
+            value: "Отменить",
+            description: `Отменить и остановить установку`,
+            emoji: "951379674418782218"
           }
         ]
         //define the selection
@@ -73,7 +73,7 @@ module.exports = {
           .setCustomId('MenuSelection') 
           .setMaxValues(1) //OPTIONAL, this is how many values you can have at each selection
           .setMinValues(1) //OPTIONAL , this is how many values you need to have at each selection
-          .setPlaceholder('Click me to change the Status') 
+          .setPlaceholder('Нажмите на меня, чтобы изменить статус') 
           .addOptions(
           menuoptions.map(option => {
             let Obj = {
@@ -88,8 +88,8 @@ module.exports = {
         //define the embed
         let MenuEmbed = new MessageEmbed()
           .setColor(es.color)
-          .setAuthor('Change Status', 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/au-kddi/190/purple-heart_1f49c.png', 'https://discord.gg/milrato')
-          .setDescription(`***Select what you need in the \`Selection\` down Below!***`)
+          .setAuthor('Изменить статус', 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/au-kddi/190/purple-heart_1f49c.png')
+          .setDescription(`***Выберите то, что вам нужно в \`Выбор\` ниже!***`)
         //send the menu msg
         let menumsg = await message.reply({embeds: [MenuEmbed], components: [new MessageActionRow().addComponents(Selection)]})
         //Create the collector
@@ -101,15 +101,15 @@ module.exports = {
         collector.on('collect', menu => {
           if (menu?.user.id === cmduser.id) {
             collector.stop();
-            if(menu?.values[0] == "Cancel") return menu?.reply(`:x: **Cancelled!**`)
+            if(menu?.values[0] == "Cancel") return menu?.reply(`:x: **Отменено!**`)
             menu?.deferUpdate();
             handle_the_picks(menu?.values[0])
           }
-          else menu?.reply({content: `<:no:833101993668771842> You are not allowed to do that! Only: <@${cmduser.id}>`, ephemeral: true});
+          else menu?.reply({content: `<:error:951379674418782218>  Вам не разрешается это делать! Только: <@${cmduser.id}>`, ephemeral: true});
         });
         //Once the Collections ended edit the menu message
         collector.on('end', collected => {
-          menumsg.edit({embeds: [menumsg.embeds[0].setDescription(`~~${menumsg.embeds[0].description}~~`)], components: [], content: `${collected && collected.first() && collected.first().values ? `<a:yes:833101995723194437> **Selected: \`${collected ? collected.first().values[0] : "Nothing"}\`**` : "❌ **NOTHING SELECTED - CANCELLED**" }`})
+          menumsg.edit({embeds: [menumsg.embeds[0].setDescription(`~~${menumsg.embeds[0].description}~~`)], components: [], content: `${collected && collected.first() && collected.first().values ? `<a:yes:945004422172385330> **Выбрано: \`${collected ? collected.first().values[0] : "Ничего"}\`**` : "❌ **Ничего не выбрано, отмена**" }`})
         });
       }
 
@@ -120,20 +120,20 @@ module.exports = {
               var tempmsg = await message.reply({embeds: [new MessageEmbed()
                 .setTitle(eval(client.la[ls]["cmds"]["owner"]["changestatus"]["variable7"]))
                 .setColor(es.color)
-                .setDescription(`Example: \`${prefix}help | ${client.user.username.split(" ")[0]} | by: milrato.eu\`
+                .setDescription(`Пример: \`${prefix}help | ${client.user.username.split(" ")[0]}\`
       
-              *Enter the text now!*`).setFooter(client.getFooter(es))
-              .addField("KEYWORDS which get replaced:", `\`{guildcount}\` .. Shows all guilds
-              \`{prefix}\` .. Shows the default Prefix
-              \`{membercount}\` .. Shows all Members
-              \`{created}\` .. Shows when the Bot was Created
+              *Введите текст сейчас!*`).setFooter(client.getFooter(es))
+              .addField("КЛЮЧЕВЫЕ СЛОВА, которые заменяются:", `\`{guildcount}\` .. Показывает все сервера
+              \`{prefix}\` .. Показывает дефолтный префикс
+              \`{membercount}\` .. Показывает всех участников
+              \`{created}\` .. Показывает когда бот был создан
               
-              \`{createdtime}\` .. Shows when Time when was Created
-              \`{name}\` .. Shows Bot Name
-              \`{tag}\` ... Shows Bot Name#1234
-              \`{commands}\` .. Shows all Commands
-              \`{usedcommands}\` .. Shows Amount of Used Commands
-              \`{songsplayed}\` .. Shows Amount of Played Songs`)
+              \`{createdtime}\` .. Показывает, когда было создано время
+              \`{name}\` .. Показывает имя бота
+              \`{tag}\` ... Показывает имя и тег бота: Kamado Tanjiro#3624
+              \`{commands}\` .. Показывает команды
+              \`{usedcommands}\` .. Показывает количество использованных команд
+              \`{songsplayed}\` .. Показывает количество воспроизведенных песен`)
               ]})
               await tempmsg.channel.awaitMessages({ filter: m => m.author.id == cmduser.id, 
                   max: 1,
@@ -173,7 +173,7 @@ module.exports = {
                     return message.channel.send({embeds: [new MessageEmbed()
                       .setFooter(client.getFooter(es))
                       .setColor(es.color)
-                      .setTitle(`Successfully set the New Status Text to:\n> \`${newStatusText}\``)
+                      .setTitle(`Успешно установите новый текст состояния на:\n> \`${newStatusText}\``)
                     ]})
                   });
                 }).catch(e => {
@@ -194,19 +194,19 @@ module.exports = {
                 .setColor(es.color)
                 .setDescription(`Example: \`${prefix}help | ${client.user.username.split(" ")[0]} | by: milrato.eu\`
       
-              *Enter the text now!*`).setFooter(client.getFooter(es))
-              .addField("KEYWORDS which get replaced:", `\`{guildcount}\` .. Shows all guilds
-              \`{prefix}\` .. Shows the default Prefix
-              \`{membercount}\` .. Shows all Members
-              \`{created}\` .. Shows when the Bot was Created
-              
-              \`{createdtime}\` .. Shows when Time when was Created
-              \`{name}\` .. Shows Bot Name
-              \`{tag}\` ... Shows Bot Name#1234
-              \`{commands}\` .. Shows all Commands
-              \`{usedcommands}\` .. Shows Amount of Used Commands
-              \`{songsplayed}\` .. Shows Amount of Played Songs`)
-              ]})
+                *Введите текст сейчас!*`).setFooter(client.getFooter(es))
+                .addField("КЛЮЧЕВЫЕ СЛОВА, которые заменяются:", `\`{guildcount}\` .. Показывает все сервера
+                \`{prefix}\` .. Показывает дефолтный префикс
+                \`{membercount}\` .. Показывает всех участников
+                \`{created}\` .. Показывает когда бот был создан
+                
+                \`{createdtime}\` .. Показывает, когда было создано время
+                \`{name}\` .. Показывает имя бота
+                \`{tag}\` ... Показывает имя и тег бота: Kamado Tanjiro#3624
+                \`{commands}\` .. Показывает команды
+                \`{usedcommands}\` .. Показывает количество использованных команд
+                \`{songsplayed}\` .. Показывает количество воспроизведенных песен`)
+                ]})
               await tempmsg.channel.awaitMessages({ filter: m => m.author.id == cmduser.id, 
                   max: 1,
                   time: 90000,
@@ -245,7 +245,7 @@ module.exports = {
                     return message.channel.send({embeds: [new MessageEmbed()
                       .setFooter(client.getFooter(es))
                       .setColor(es.color)
-                      .setTitle(`Successfully set the New Status Text to:\n> \`${newStatusText}\``)
+                      .setTitle(`Успешно установите новый текст состояния на\n> \`${newStatusText}\``)
                     ]})
                   });
                 }).catch(e => {
@@ -265,29 +265,29 @@ module.exports = {
                 async function second_layer(){
                   let menuoptions = [
                     {
-                      value: "PLAYING",
-                      description: `e.g: Playing ${config.status.text}`
+                      value: "Играет",
+                      description: `Играет в ${config.status.text}`
                     },
                     {
-                      value: "WATCHING",
-                      description: `e.g: Watching ${config.status.text}`
+                      value: "Смотрит",
+                      description: `Смотрит за ${config.status.text}`
                     },
                     {
-                      value: "STREAMING",
-                      description: `e.g: Streaming ${config.status.text}`
+                      value: "Стримит",
+                      description: `Стримит ${config.status.text}`
                     },
                     {
-                      value: "LISTENING",
-                      description: `e.g: Listening to ${config.status.text}`
+                      value: "Слушает",
+                      description: `Слушает ${config.status.text}`
                     },
                     {
-                      value: "COMPETING",
-                      description: `e.g: Competing ${config.status.text}`
+                      value: "Конкурирует",
+                      description: `Конкурирует ${config.status.text}`
                     },
                     {
-                      value: "Cancel",
-                      description: `Cancel and stop the Ai-Chat-Setup!`,
-                      emoji: "862306766338523166"
+                      value: "Отменить",
+                      description: `Отменить и остановить установку!`,
+                      emoji: "951379674418782218"
                     }
                   ]
                   //define the selection
@@ -295,7 +295,7 @@ module.exports = {
                     .setCustomId('MenuSelection') 
                     .setMaxValues(1) //OPTIONAL, this is how many values you can have at each selection
                     .setMinValues(1) //OPTIONAL , this is how many values you need to have at each selection
-                    .setPlaceholder('Click me to change the Status') 
+                    .setPlaceholder('Нажми на меня чтобы поменять статус') 
                     .addOptions(
                     menuoptions.map(option => {
                       let Obj = {
@@ -310,8 +310,8 @@ module.exports = {
                   //define the embed
                   let MenuEmbed = new MessageEmbed()
                     .setColor(es.color)
-                    .setAuthor('Change Status', 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/au-kddi/190/purple-heart_1f49c.png', 'https://discord.gg/milrato')
-                    .setDescription(`***Select what you need in the \`Selection\` down Below!***`)
+                    .setAuthor('Изменить статус', 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/au-kddi/190/purple-heart_1f49c.png')
+                    .setDescription(`***Выберите то, что вам нужно в \`Выбор\` ниже!***`)
                   //send the menu msg
                   let menumsg = await message.reply({embeds: [MenuEmbed], components: [new MessageActionRow().addComponents(Selection)]})
                   //Create the collector
@@ -323,7 +323,7 @@ module.exports = {
                   collector.on('collect', menu => {
                     if (menu?.user.id === cmduser.id) {
                       collector.stop();
-                      if(menu?.values[0] == "Cancel") return menu?.reply(`:x: **Cancelled!**`)
+                      if(menu?.values[0] == "Cancel") return menu?.reply(`:x: **Отмена!**`)
                       menu?.deferUpdate();
                       let temptype = menu?.values[0]
                       let status = config
@@ -349,11 +349,11 @@ module.exports = {
                         ]})
                       });
                     }
-                    else menu?.reply({content: `<:no:833101993668771842> You are not allowed to do that! Only: <@${cmduser.id}>`, ephemeral: true});
+                    else menu?.reply({content: `<:error:951379674418782218> Вам не разрешается это делать! Только: <@${cmduser.id}>`, ephemeral: true});
                   });
                   //Once the Collections ended edit the menu message
                   collector.on('end', collected => {
-                    menumsg.edit({embeds: [menumsg.embeds[0].setDescription(`~~${menumsg.embeds[0].description}~~`)], components: [], content: `${collected && collected.first() && collected.first().values ? `<a:yes:833101995723194437> **Selected: \`${collected ? collected.first().values[0] : "Nothing"}\`**` : "❌ **NOTHING SELECTED - CANCELLED**" }`})
+                    menumsg.edit({embeds: [menumsg.embeds[0].setDescription(`~~${menumsg.embeds[0].description}~~`)], components: [], content: `${collected && collected.first() && collected.first().values ? `<a:yes:945004422172385330> **Выбрано: \`${collected ? collected.first().values[0] : "Ничего"}\`**` : "❌ **Ничего не выбрано, отмена**" }`})
                   });
                 }
             }
@@ -363,7 +363,7 @@ module.exports = {
               .setTitle(eval(client.la[ls]["cmds"]["owner"]["changestatus"]["variable22"]))
               .setColor(es.color)
               .setDescription(`
-            Example: \`https://twitch.tv/#\` --> must be a twitch link
+            Пример: \`https://twitch.tv/#\` --> должно быть, ссылка на twitch
     
             *Enter the text now!*`).setFooter(client.getFooter(es))
             ]})
@@ -424,24 +424,24 @@ module.exports = {
                 async function second_layer(){
                   let menuoptions = [
                     {
-                      value: "online",
-                      description: `Showing myself as ONLINE`,
+                      value: "Онлайн",
+                      description: `Показывать себя в онлайне`,
                       emoji: "🟢"
                     },
                     {
                       value: "idle",
-                      description: `Showing myself as IDLE`,
+                      description: `Показывать себя в Неактивен`,
                       emoji: "🟡"
                     },
                     {
-                      value: "dnd",
-                      description: `Showing myself as DND`,
+                      value: "Не беспокоить",
+                      description: `Показывать себя в не беспокоить`,
                       emoji: "🔴"
                     },
                     {
-                      value: "Cancel",
-                      description: `Cancel and stop the Ai-Chat-Setup!`,
-                      emoji: "862306766338523166"
+                      value: "Отменить",
+                      description: `Отменить и остановить установку!`,
+                      emoji: "951379674418782218"
                     }
                   ]
                   //define the selection
@@ -449,7 +449,7 @@ module.exports = {
                     .setCustomId('MenuSelection') 
                     .setMaxValues(1) //OPTIONAL, this is how many values you can have at each selection
                     .setMinValues(1) //OPTIONAL , this is how many values you need to have at each selection
-                    .setPlaceholder('Click me to change the Status') 
+                    .setPlaceholder('Нажми на меня чтобы поменять статус') 
                     .addOptions(
                     menuoptions.map(option => {
                       let Obj = {
@@ -464,8 +464,8 @@ module.exports = {
                   //define the embed
                   let MenuEmbed = new MessageEmbed()
                     .setColor(es.color)
-                    .setAuthor('Change Status', 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/au-kddi/190/purple-heart_1f49c.png', 'https://discord.gg/milrato')
-                    .setDescription(`***Select what you need in the \`Selection\` down Below!***`)
+                    .setAuthor('Изменить статус', 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/au-kddi/190/purple-heart_1f49c.png')
+                    .setDescription(`***Выберите то, что вам нужно в \`Выбор\` ниже!***`)
                   //send the menu msg
                   let menumsg = await message.reply({embeds: [MenuEmbed], components: [new MessageActionRow().addComponents(Selection)]})
                   //Create the collector
@@ -477,7 +477,7 @@ module.exports = {
                   collector.on('collect', menu => {
                     if (menu?.user.id === cmduser.id) {
                       collector.stop();
-                      if(menu?.values[0] == "Cancel") return menu?.reply(`:x: **Cancelled!**`)
+                      if(menu?.values[0] == "Cancel") return menu?.reply(`:x: **Отмена!**`)
                       menu?.deferUpdate();
                       let temptype = menu?.values[0]
                       client.user.setStatus(temptype) 
@@ -487,11 +487,11 @@ module.exports = {
                         .setTitle(eval(client.la[ls]["cmds"]["owner"]["changestatus"]["variable20"]))
                       ]})
                     }
-                    else menu?.reply({content: `<:no:833101993668771842> You are not allowed to do that! Only: <@${cmduser.id}>`, ephemeral: true});
+                    else menu?.reply({content: `<:error:951379674418782218> Вам не разрешается это делать! Только: <@${cmduser.id}>`, ephemeral: true});
                   });
                   //Once the Collections ended edit the menu message
                   collector.on('end', collected => {
-                    menumsg.edit({embeds: [menumsg.embeds[0].setDescription(`~~${menumsg.embeds[0].description}~~`)], components: [], content: `${collected && collected.first() && collected.first().values ? `<a:yes:833101995723194437> **Selected: \`${collected ? collected.first().values[0] : "Nothing"}\`**` : "❌ **NOTHING SELECTED - CANCELLED**" }`})
+                    menumsg.edit({embeds: [menumsg.embeds[0].setDescription(`~~${menumsg.embeds[0].description}~~`)], components: [], content: `${collected && collected.first() && collected.first().values ? `<a:yes:945004422172385330> **Выбрано: \`${collected ? collected.first().values[0] : "Ничего"}\`**` : "❌ **Ничего не выбрано, отмена**" }`})
                   });
                 }
             }

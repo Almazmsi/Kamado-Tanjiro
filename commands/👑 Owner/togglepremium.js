@@ -7,7 +7,7 @@ module.exports = {
   name: `togglepremium`,
   type: "info",
   category: `👑 Owner`,
-  description: `ENABLE / DISABLE the PREMIUM - STATE of a GUILD`,
+  description: `Включает/Отключает премиум статус сервера`,
   usage: `togglepremium <GUILDID>`,
   cooldown: 5,
   run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {
@@ -33,10 +33,10 @@ module.exports = {
       let guild = client.guilds.cache.get(args[0]);
       if (guild) {
         guild.fetchOwner().then(owner => {
-          owner.send(`✅ Your Guild is now a \`PREMIUM-GUILD\``).catch(() => {});
+          owner.send(`✅ Этот сервер имеет статус \`PREMIUM-GUILD\``).catch(() => {});
         }).catch(() => {});
       }
-      return message.reply(`✅ **The Guild ${guild ? guild.name : args[0]} is now a \`PREMIUM-GUILD\`**`)
+      return message.reply(`✅ **Этот сервер ${guild ? guild.name : args[0]} уже является премиум \`PREMIUM-GUILD\`**`)
     }
   },
 };

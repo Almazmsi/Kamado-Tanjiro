@@ -8,7 +8,7 @@ module.exports = {
   type: "info",
   category: `👑 Owner`,
   aliases: [`serverleave`, "kickbot"],
-  description: `Make the Bot Leave a specific Server`,
+  description: `Заставить бота покинуть определенный сервер`,
   usage: `leaveserver <GUILDID>`,
   run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {
     if (!config.ownerIDS.includes(message.author.id))

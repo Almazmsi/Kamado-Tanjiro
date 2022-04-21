@@ -8,7 +8,7 @@ module.exports = {
   name: `changeprefix`,
   category: `👑 Owner`,
   type: "bot",
-  description: `Let's you change the Prefix of the BOT GLOBALLY (Unless a Guild has a different Setting)`,
+  description: `Позволяет изменять префикс бота ГЛОБАЛЬНО (если у сервера нет других настроек).)`,
   usage: `changeprefix <NEW PREFIX>`,
   memberpermissions: [`ADMINISTRATOR`],
   run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {
@@ -18,7 +18,7 @@ module.exports = {
           .setColor(es.wrongcolor)
           .setFooter(client.getFooter(es))
           .setTitle(eval(client.la[ls]["cmds"]["owner"]["changename"]["variable1"]))
-          .setDescription(eval(client.la[ls]["cmds"]["owner"]["changename"]["variable2"]) + `\n\nIf you want to change the Settings for **this Server** then type use the \`${prefix}prefix <newprefix>\` Command`)
+          .setDescription(eval(client.la[ls]["cmds"]["owner"]["changename"]["variable2"]) + `\n\nЕсли вы хотите изменить настройки для **этого сервера**, то введите команду \`${prefix}prefix <newprefix>\``)
         ]
       });
     //if no args return error
@@ -64,8 +64,8 @@ module.exports = {
         embeds: [new MessageEmbed()
           .setFooter(client.getFooter(es))
           .setColor(es.color)
-          .setTitle(`👍 Successfully changed the Prefix`)
-          .setDescription(`**To change it in this Server use the: \`${prefix}prefix <newprefix>\` Command!**`)
+          .setTitle(`👍 Успешное изменение префикса`)
+          .setDescription(`**Чтобы изменить его в этом сервере, используйте: \`${prefix}prefix <newprefix>\`**`)
         ]
       })
     });

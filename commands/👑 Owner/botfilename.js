@@ -15,7 +15,7 @@ module.exports = {
   cooldown: 5,
   usage: "botfilename",
   type: "info",
-  description: "If we ask you for the Original Bot name or when you ordered it you can execute this Command to find it out!",
+  description: "Если мы спросим у вас имя оригинального бота или когда вы его заказали, вы можете выполнить эту команду, чтобы узнать это имя!",
   run: async (client, message, args, cmduser, text, prefix) => {
   
     let es = client.settings.get(message.guild.id, "embed");let ls = client.settings.get(message.guild.id, "language")

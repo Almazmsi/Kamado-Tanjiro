@@ -10,7 +10,7 @@ module.exports = {
   aliases: ["changebotname", "botname"],
   cooldown: 5,
   usage: "changename <NEW BOT NAME>",
-  description: "Changes the Name of the BOT",
+  description: "Изменяет название бота",
   run: async (client, message, args, cmduser, text, prefix, player, es, ls) => {
     if (!config.ownerIDS.some(r => r.includes(message.author.id)))
       return message.channel.send({
