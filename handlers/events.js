@@ -14,7 +14,7 @@ module.exports = async (client) => {
           allevents.push(eventName);
           client.on(eventName, event.bind(null, client));
           if (settings.show_loaded_events) {
-            client.logger(`Loaded Event: ${file}`)
+            client.logger(`Загружен ивент: ${file}`)
           }
         } catch (e) {
           console.log(String(e.stack).grey.bgRed)
@@ -22,7 +22,7 @@ module.exports = async (client) => {
       }
     }
     await ["client", "guild"].forEach(e => load_dir(e));
-    client.logger("Logging into the Bot ... ".grey);
+    client.logger("Вход в систему бота ... ".grey);
   } catch (e) {
     console.log(String(e.stack).grey.bgRed)
   }

@@ -39,7 +39,7 @@ module.exports = (client) => {
         let guild = client.guilds.cache.get(gId);
         if (!guild) {
           client.autoresume.delete(gId);
-          client.logger(`Autoresume`.brightCyan + ` - Bot got Kicked out of the Guild`)
+          client.logger(`Автовоспроизведение`.brightCyan + ` - Бота выгнали из сервера`)
           continue;
         }
         var data = client.autoresume.get(gId);
@@ -49,7 +49,7 @@ module.exports = (client) => {
         if (!voiceChannel) voiceChannel = await guild.channels.fetch(data.voiceChannel).catch(() => {}) || false;
         if (!voiceChannel || !voiceChannel.members || voiceChannel.members.filter(m => !m.user.bot && !m.voice.deaf && !m.voice.selfDeaf).size < 1) {
           client.autoresume.delete(gId);
-          client.logger(`Autoresume`.brightCyan + ` - Voice Channel is either Empty / no Listeners / got deleted`)
+          client.logger(`Автовоспроизведение`.brightCyan + ` - Голосовой канал либо пуст / нет слушателей / удален`)
           continue;
         }
 
@@ -57,7 +57,7 @@ module.exports = (client) => {
         if (!textChannel) textChannel = await guild.channels.fetch(data.textChannel).catch(() => {}) || false;
         if (!textChannel) {
           client.autoresume.delete(gId);
-          client.logger(`Autoresume`.brightCyan + ` - Text Channel got deleted`)
+          client.logger(`Автовоспроизведение`.brightCyan + ` - Текстовый канал был удален`)
           continue;
         }
 
@@ -104,10 +104,10 @@ module.exports = (client) => {
             for (let track of data.queue) player.queue.add(await buildTrack(track))
         } else {
           player.destroy();
-          client.logger(`Autoresume`.brightCyan + ` - Destroyed the player, because there are no tracks available`);
+          client.logger(`Автовоспроизведение`.brightCyan + ` - Уничтожен проигрыватель, так как нет доступных треков`);
           continue;
         }
-        client.logger(`Autoresume`.brightCyan + ` - Added ${player.queue.length} Tracks on the QUEUE and started playing ${player.queue.current.title} in ${guild.name}`);
+        client.logger(`Автовоспроизведение`.brightCyan + ` - Добавлено ${player.queue.length} треков в очередь и начал играть ${player.queue.current.title} in ${guild.name}`);
 
 
         //ADJUST THE QUEUE SETTINGS
@@ -331,23 +331,23 @@ module.exports = (client) => {
       //for checking the relevant messages
       var interval = setInterval(async () => {
         if (client.musicsettings.get(player.guild, `channel`) && client.musicsettings.get(player.guild, `channel`).length > 5) {
-          client.logger(`Music System - Relevant Checker - Checkingfor unrelevant Messages`)
+          client.logger(`Музыкальная система - Проверка релевантности - Проверка нерелевантных сообщений`)
           let messageId = client.musicsettings.get(player.guild, `message`);
           //try to get the guild
           let guild = client.guilds.cache.get(player.guild);
-          if (!guild) return client.logger(`Music System - Relevant Checker - Guild not found!`)
+          if (!guild) return client.logger(`Музыкальная система - Проверка релевантности - Сервер не найден!`)
           //try to get the channel
           let channel = guild.channels.cache.get(client.musicsettings.get(player.guild, `channel`));
           if (!channel) channel = await guild.channels.fetch(client.musicsettings.get(player.guild, `channel`)).catch(() => {}) || false
-          if (!channel) return client.logger(`Music System - Relevant Checker - Channel not found!`)
-          if (!channel.permissionsFor(channel.guild.me).has(Permissions.FLAGS.MANAGE_MESSAGES)) return client.logger(`Music System - Relevant Checker - Missing Permissions`)
+          if (!channel) return client.logger(`Музыкальная система - Проверка релевантности - Канал не найден!`)
+          if (!channel.permissionsFor(channel.guild.me).has(Permissions.FLAGS.MANAGE_MESSAGES)) return client.logger(`Музыкальная система - Проверка релевантности - Недостаточно прав`)
           //try to get the channel
           let messages = await channel.messages.fetch();
           if (messages.filter(m => m.id != messageId).size > 0) {
             channel.bulkDelete(messages.filter(m => m.id != messageId)).catch(() => {})
-              .then(messages => client.logger(`Music System - Relevant Checker - Bulk deleted ${messages.size} messages`))
+              .then(messages => client.logger(`Музыкальная система - Проверка релевантности - Массовое удаление ${messages.size} сообщений`))
           } else {
-            client.logger(`Music System - Relevant Checker - No Relevant Messages`)
+            client.logger(`Музыкальная система - Проверка релевантности - Нет релевантных сообщений`)
           }
         }
       }, 60000);
@@ -485,7 +485,7 @@ module.exports = (client) => {
 
           databasing(client, player.guild, player.get(`playerauthor`));
           playercreated.delete(player.guild); // delete the playercreated state from the thing
-          client.logger(`Player Created in ${guild ? guild.name : player.guild} | Set the - Guild Default Data`);
+          client.logger(`Проигрыватель создан в  ${guild ? guild.name : player.guild} | Установить - Данные по умолчанию гильдии`);
           /*client.logger({
             Default_volume: client.settings.get(player.guild, `defaultvolume`),
             Default_Equalizer: client.settings.get(player.guild, `defaulteq`),
@@ -496,7 +496,7 @@ module.exports = (client) => {
             channel.send({
               embeds: [
                 new MessageEmbed().setColor(es.color)
-                .setDescription(`> 👍 **Joined** <#${player.voiceChannel}>\n\n> 📃 **And bound to** <#${player.textChannel}>`)
+                .setDescription(`> 👍 **Присоединился** <#${player.voiceChannel}>\n\n> 📃 **И связан с** <#${player.textChannel}>`)
                 .setTimestamp()
                 .setFooter(client.getFooter(es))
               ]
@@ -507,7 +507,7 @@ module.exports = (client) => {
         //Update the Music System Message - Embed
         client.updateMusicSystem(player);
         if (client.musicsettings.get(player.guild, `channel`) == player.textChannel) {
-          return client.logger(`No PRUNING-Message sent, because Player-TextChannel == Music System Text Channel`)
+          return client.logger(`Сообщение PRUNING-Message не отправлено, потому что Player-TextChannel == Music System Text Channel`)
         }
         if (player.textChannel && player.get(`previoustrack`)) {
           if (!collector.ended) {
@@ -518,7 +518,7 @@ module.exports = (client) => {
             }
           }
           //update the last Played Song Message
-          client.editLastPruningMessage(player, `\n⛔️ SONG ENDED!`)
+          client.editLastPruningMessage(player, `\n⛔️ Песня закончена!`)
         }
         //votes for skip --> 0
         player.set(`votes`, `0`);
@@ -529,7 +529,7 @@ module.exports = (client) => {
         player.set(`previoustrack`, track);
         //if that's disabled return
         if (!client.settings.get(player.guild, `pruning`)) {
-          return client.logger(`Pruning Disabled - Not Sending a Message`);
+          return client.logger(`Удаление отключено - не отправляется сообщение`);
         }
         // playANewTrack(client,player,track);
         let playdata = generateQueueEmbed(client, player, track)
@@ -556,18 +556,18 @@ module.exports = (client) => {
             const player = client.manager.players.get(i.guild.id);
             if (!player)
               return i.reply({
-                content: `❌ Nothing Playing yet`,
+                content: `❌ Пока ничего не играет`,
                 ephemeral: true
               })
 
             if (!channel)
               return i.reply({
-                content: `❌ **Please join a Voice Channel first!**`,
+                content: `❌ **Пожалуйста, сначала присоединитесь к голосовому каналу!**`,
                 ephemeral: true
               })
             if (channel.id !== player.voiceChannel)
               return i.reply({
-                content: `❌ **Please join __my__ Voice Channel first! <#${player.voiceChannel}>**`,
+                content: `❌ **Пожалуйста, сначала присоединяйтесь к __моему__ голосовому каналу! <#${player.voiceChannel}>**`,
                 ephemeral: true
               })
 
@@ -576,8 +576,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.wrongcolor)
                   .setFooter(client.getFooter(es))
-                  .setTitle(`❌ **You are not a DJ and not the Song Requester!**`)
-                  .setDescription(`**DJ-ROLES:**\n${check_if_dj(client, i.member, player.queue.current)}`)
+                  .setTitle(`❌ **Вы не диджей и не заказчик песни!**`)
+                  .setDescription(`**DJ-РОЛИ:**\n${check_if_dj(client, i.member, player.queue.current)}`)
                 ],
                 ephemeral: true
               });
@@ -594,8 +594,8 @@ module.exports = (client) => {
                   embeds: [new MessageEmbed()
                     .setColor(es.color)
                     .setTimestamp()
-                    .setTitle(`⏹ **Stopped playing and left the Channel**`)
-                    .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                    .setTitle(`⏹ **Прекратил игру и покинул канал**`)
+                    .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                       dynamic: true
                     })))
                   ]
@@ -610,8 +610,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`⏭ **Skipped to the next Song!**`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`⏭ **Перешел к следующей песне!**`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -627,8 +627,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`⏹ **Stopped playing and left the Channel**`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`⏹ **Прекратил игру и покинул канал**`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -647,8 +647,8 @@ module.exports = (client) => {
                   embeds: [new MessageEmbed()
                     .setColor(es.color)
                     .setTimestamp()
-                    .setTitle(`▶️ **Resumed!**`)
-                    .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                    .setTitle(`▶️ **Возобновлено!**`)
+                    .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                       dynamic: true
                     })))
                   ]
@@ -661,8 +661,8 @@ module.exports = (client) => {
                   embeds: [new MessageEmbed()
                     .setColor(es.color)
                     .setTimestamp()
-                    .setTitle(`⏸ **Paused!**`)
-                    .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                    .setTitle(`⏸ **Приостановлено!**`)
+                    .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                       dynamic: true
                     })))
                   ]
@@ -688,8 +688,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`${player.get(`autoplay`) ? `<a:yes:833101995723194437> **Enabled Autoplay**`: `❌ **Disabled Autoplay**`}`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`${player.get(`autoplay`) ? `<a:yes:945004422172385330> **Включена функция автовоспроизведение**`: `❌ **Отключена функция автовоспроизведение**`}`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -708,8 +708,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`🔀 **Shuffled ${player.queue.length} Songs!**`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`🔀 **Перемешано ${player.queue.length} треков!**`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -729,8 +729,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`${player.trackRepeat ? `<a:yes:833101995723194437> **Enabled Song Loop**`: `❌ **Disabled Song Loop**`}`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`${player.trackRepeat ? `<a:yes:945004422172385330> **Включена функция повтора трека**`: `❌ **Отключена функция повтора трека**`}`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -754,8 +754,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`${player.queueRepeat ? `<a:yes:833101995723194437> **Enabled Queue Loop**`: `❌ **Disabled Queue Loop**`}`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`${player.queueRepeat ? `<a:yes:945004422172385330> **Включена функция повтора очереди**`: `❌ **Отключена функция повтора очереди**`}`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -784,8 +784,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`⏩ **Forwarded the song for \`10 Seconds\`!**`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`⏩ **Перемотана песня вперед на \`10 секунд\`!**`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -808,8 +808,8 @@ module.exports = (client) => {
                 embeds: [new MessageEmbed()
                   .setColor(es.color)
                   .setTimestamp()
-                  .setTitle(`⏪ **Rewinded the song for \`10 Seconds\`!**`)
-                  .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                  .setTitle(`⏪ **Отмотана песня на \`10 секунд\`!**`)
+                  .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                   })))
                 ]
@@ -826,7 +826,7 @@ module.exports = (client) => {
       await player.stop();
       if (player.textChannel) {
         //update the last Played Song Message
-        client.editLastPruningMessage(player, `\n⚠️⚠️⚠️ SONG STUCKED ⚠️⚠️!`)
+        client.editLastPruningMessage(player, `\n⚠️⚠️⚠️ Песня заморожена ⚠️⚠️!`)
         //Update the Music System Message - Embed
         client.updateMusicSystem(player);
 
@@ -836,7 +836,7 @@ module.exports = (client) => {
       await player.stop();
       if (player.textChannel) {
         //update the last Played Song Message
-        client.editLastPruningMessage(player, `\n⚠️⚠️⚠️ SONG CRASHED ⚠️⚠️!`)
+        client.editLastPruningMessage(player, `\n⚠️⚠️⚠️ Ошибка при возпроизведении песни ⚠️⚠️!`)
         //Update the Music System Message - Embed
         client.updateMusicSystem(player);
       }
@@ -856,7 +856,7 @@ module.exports = (client) => {
 
           //if afk is enbaled return and not destroy the PLAYER
           if (player.get(`afk`)) {
-            return client.logger(`Queue went empty in ${client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild}, not leaving, because AFK is enabled!`)
+            return client.logger(`Очередь стала пустой в ${client.guilds.cache.get(player.guild) ? client.guilds.cache.get(player.guild).name : player.guild},но я не ухожу, потому что AFK включен!`)
           }
           if (settings.LeaveOnEmpty_Queue.enabled && player) {
             setTimeout(async () => {
@@ -864,7 +864,7 @@ module.exports = (client) => {
                 let pl = client.manager.players.get(player.guild);
                 if (!pl.queue || !pl.queue.current) {
                   await pl.destroy();
-                  return client.logger(`Queue destroyed because it went Empty`)
+                  return client.logger(`Очередь уничтожена, потому что она стала пустой`)
                 }
               } catch (e) {
                 console.log(e)
@@ -891,7 +891,7 @@ function generateQueueEmbed(client, player, track) {
   let skip = new MessageButton().setStyle('PRIMARY').setCustomId('1').setEmoji(`⏭`).setLabel(`Пропустить`)
   let stop = new MessageButton().setStyle('DANGER').setCustomId('2').setEmoji(`🏠`).setLabel(`Остановить`)
   let pause = new MessageButton().setStyle('SECONDARY').setCustomId('3').setEmoji('⏸').setLabel(`Пауза`)
-  let autoplay = new MessageButton().setStyle('SUCCESS').setCustomId('4').setEmoji('🔁').setLabel(`Автопроигрывание`)
+  let autoplay = new MessageButton().setStyle('SUCCESS').setCustomId('4').setEmoji('🔁').setLabel(`Автовоспроизведение`)
   let shuffle = new MessageButton().setStyle('PRIMARY').setCustomId('5').setEmoji('🔀').setLabel(`Перемешать`)
   if (!player.playing) {
     pause = pause.setStyle('SUCCESS').setEmoji('▶️').setLabel(`Возобновить`)

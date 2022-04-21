@@ -46,7 +46,7 @@ module.exports = (client) => {
     });
   }
   //Log information
-  client.logger(`Player for the Bot ${client.user ? client.user.username + " " : ""}created!`);
+  client.logger(`Плеер для бота ${client.user ? client.user.username + " " : ""}создан!`);
 
 
   client.once("ready", () => {

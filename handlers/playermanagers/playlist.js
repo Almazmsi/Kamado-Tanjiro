@@ -43,7 +43,7 @@ async function playlist(client, message, args, type, slashCommand = false) {
       // Check the load type as this command is not that advanced for basics
       if (res.loadType === "LOAD_FAILED") throw res.exception;
       else if (res.loadType === "SEARCH_RESULT") throw {
-        message: "Searches are not supported with this command. Use   ?play   or   ?search"
+        message: "Поиск с помощью этой команды не поддерживается. Используйте   //play   or   //search"
       };
     } catch (e) {
       console.log(e.stack ? String(e.stack).grey : String(e).grey)
@@ -75,14 +75,14 @@ async function playlist(client, message, args, type, slashCommand = false) {
           ephemeral: true,
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playlist"]["variable3"]))
           ]
         }).catch(() => {})
       return message.channel.send({
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playlist"]["variable3"]))
         ]
       }).catch(() => {}).then(msg => {
@@ -117,8 +117,8 @@ async function playlist(client, message, args, type, slashCommand = false) {
       .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playlist"]["variable4"]))
       .setColor(ee.color)
       .setThumbnail(`https://img.youtube.com/vi/${res.tracks[0].identifier}/mqdefault.jpg`)
-      .addField("⌛ Duration: ", `> \`${format(res.playlist.duration)}\``, true)
-      .addField("🔂 Queue length: ", `> \`${player.queue.length} Songs\``, true)
+      .addField("⌛ Длительность: ", `> \`${format(res.playlist.duration)}\``, true)
+      .addField("🔂 Продолжительность очереди: ", `> \`${player.queue.length} Songs\``, true)
 
     if (slashCommand && slashCommand.isCommand()) slashCommand.reply({
       ephemeral: true,
@@ -137,13 +137,13 @@ async function playlist(client, message, args, type, slashCommand = false) {
         ephemeral: true,
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
         ]
       }).catch(() => {})
     message.channel.send({
       embeds: [new MessageEmbed()
         .setColor(ee.wrongcolor)
-        .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+        .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
       ]
     }).catch(() => {}).then(msg => {
       setTimeout(() => {

@@ -72,7 +72,7 @@ async function skiptrack(client, message, args, type, slashCommand) {
     return message.channel.send({
       embeds: [new MessageEmbed()
         .setColor(ee.wrongcolor)
-        .setTitle(String("❌ **There was an Error while searching: `" + search).substr(0, 256 - 3) + "`**")
+        .setTitle(String("❌ **Во время поиска произошла ошибка: `" + search).substr(0, 256 - 3) + "`**")
         .setDescription(`\`\`\`${e}\`\`\``.substr(0, 2000))
       ]
     });
@@ -85,14 +85,14 @@ async function skiptrack(client, message, args, type, slashCommand) {
           ephemeral: true,
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["song"]["variable3"]))
           ]
         })
       return message.channel.send({
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["song"]["variable3"]))
         ]
       }).then(msg => {
@@ -142,14 +142,14 @@ async function skiptrack(client, message, args, type, slashCommand) {
           ephemeral: true,
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["song"]["variable5"]))
           ]
         })
       return message.channel.send({
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["song"]["variable5"]))
         ]
       }).then(msg => {
@@ -198,13 +198,13 @@ async function skiptrack(client, message, args, type, slashCommand) {
     }
     //send information
     var playlistembed = new MessageEmbed()
-      .setTitle(`Added Playlist 🩸 **\`${res.playlist.name}`.substr(0, 256 - 3) + "`**")
+      .setTitle(`Добавлен плейлист 🩸 **\`${res.playlist.name}`.substr(0, 256 - 3) + "`**")
       .setURL(res.playlist.uri).setColor(ee.color)
       .setThumbnail(`https://img.youtube.com/vi/${res.tracks[0].identifier}/mqdefault.jpg`)
-      .addField("⌛ Duration: ", `> \`${format(res.playlist.duration)}\``, true)
-      .addField("🔂 Queue length: ", `> \`${player.queue.length} Songs\``, true)
-      .setFooter(client.getFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL({
-        dynamic: true
+      .addField("⌛ Длительность: ", `> \`${format(res.playlist.duration)}\``, true)
+      .addField("🔂 Продолжитьельность очереди : ", `> \`${player.queue.length} Songs\``, true)
+      .setFooter(client.getFooter(`Запросил: ${message.author.tag}`, message.author.displayAvatarURL({
+      dynamic: true
       })))
     if (slashCommand && slashCommand.isCommand()) slashCommand.reply({
       ephemeral: true,

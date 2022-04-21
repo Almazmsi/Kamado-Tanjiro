@@ -53,14 +53,14 @@ async function request(client, message, args, type, slashCommand) {
           ephemeral: true,
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["request"]["variable1"]))
           ]
         }).catch(() => {})
       return message.channel.send({
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["request"]["variable1"]))
         ]
       }).catch(() => {}).then(msg => {
@@ -103,14 +103,14 @@ async function request(client, message, args, type, slashCommand) {
           ephemeral: true,
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["request"]["variable2"]))
           ]
         }).catch(() => {})
       return message.channel.send({
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["request"]["variable2"]))
         ]
       }).catch(() => {}).then(msg => {
