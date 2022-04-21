@@ -54,20 +54,19 @@ _**Музыкальный бот с использованием lavalink и dis
 ### 2. Lavalink not work (use server 02 and 03, but i don't know 01 server)
 
 ㅤㅤ**02 server**
-
 ![Code_-_Insiders_To1xbiJfq9](https://user-images.githubusercontent.com/72695998/154824816-16789f10-43ac-4ee5-843e-41b1980af369.png)
-ㅤㅤ**03 server**
 
+ㅤㅤ**03 server**
 ![Code_-_Insiders_DyhJZx9X57](https://user-images.githubusercontent.com/72695998/154824822-3aa08caa-25db-4d19-9984-5d90ef711a34.png)
 
 ### 3. Missing Acces to use owner cmd
 
 ㅤㅤ**copy**
-
 ![DiscordPTB_jNcZazBXhD](https://user-images.githubusercontent.com/72695998/154824867-a322c459-4c5a-4db0-82b1-0a2b83cd43f5.png)
-ㅤㅤ**paste**
 
+ㅤㅤ**paste**
 ![Code_-_Insiders_kJXZf6a3fu](https://user-images.githubusercontent.com/72695998/154824877-b1c104df-5b68-4955-9621-e36218650e07.png)
+
 
 ### 4. Not work Spotify
 
@@ -126,6 +125,7 @@ Reason:  RangeError [EMBED_AUTHOR_NAME]: MessageEmbed author name must be a stri
     at Object.run (/home/botdiscord/discord-js-lavalink-Music-Bot-erela-js/commands/🎶 Music/nowplaying.js:31:8)
     at module.exports (/home/botdiscord/discord-js-lavalink-Music-Bot-erela-js/events/guild/messageCreate.js:309:17)
 === UNHANDLED REJECTION ===`
+
 _**Fix**_
 ㅤㅤ**1. add // 31-33**
 
@@ -143,6 +143,7 @@ Reason:  ReferenceError: createBar is not defined
     at module.exports (/home/botdiscord/discord-js-lavalink-Music-Bot-erela-js/events/guild/messageCreate.js:309:17)
 === UNHANDLED REJECTION ===
 `
+
 _**Fix**_
 ㅤㅤ**1. add // 38**
 
