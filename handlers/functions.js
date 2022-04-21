@@ -238,9 +238,9 @@ function stations(client, prefix, message) {
       ILOVERADIO += `**${i + beforeindex}** [${radios.ILOVERADIO[i].split(" ")[0].replace("-", " ").substr(0, 16)}](${radios.ILOVERADIO[i].split(" ")[1]})\n`;
     }
     beforeindex+=radios.ILOVERADIO.length;
-    reyfm_iloveradio_embed.addField("**REYFM-STATIONS:**", `${REYFM}`.substr(0, 1024), true)
-    reyfm_iloveradio_embed.addField("**ILOVEMUSIC-STATIONS:**", `${ILOVERADIO}`.substr(0, 1024), true)
-    reyfm_iloveradio_embed.addField("**INFORMATIONS:**", "> *On the next pages, are country specific Radiostations*\n> *Some of those might not work, because they might be offline, this is because of either ping, timezone or because that they are not maintained!*")
+    reyfm_iloveradio_embed.addField("**Радиостанции:**", `${REYFM}`.substr(0, 1024), true)
+    reyfm_iloveradio_embed.addField("**Любимые радиостанции:**", `${ILOVERADIO}`.substr(0, 1024), true)
+    reyfm_iloveradio_embed.addField("**Информация:**", "> *На следующих страницах представлены радиостанции для конкретных стран.*\n> *Некоторые из них могут не работать, потому что они могут быть не в сети, это происходит из-за пинга, часового пояса или из-за того, что они не поддерживаются.!*")
 
     let United_Kingdom = "";
     for (let i = 0; i < radios.EU.United_Kingdom.length; i++) {
@@ -564,7 +564,7 @@ async function swap_pages(client, message, description, TITLE) {
   }
   if (embeds.length === 0) return message.channel.send({
     embeds: [new MessageEmbed()
-      .setTitle(`${emoji.msg.ERROR} No Content added to the SWAP PAGES Function`)
+      .setTitle(`${emoji.msg.ERROR} Не добавлено содержимое в функцию SWAP PAGES`)
       .setColor(es.wrongcolor).setThumbnail(es.thumb ? es.footericon && (es.footericon.includes("http://") || es.footericon.includes("https://")) ? es.footericon : client.user.displayAvatarURL() : null)
       .setFooter(client.getFooter(es))
     ]
@@ -579,7 +579,7 @@ async function swap_pages(client, message, description, TITLE) {
   const allbuttons = [new MessageActionRow().addComponents([button_back, button_home, button_forward])]
   //Send message with buttons
   let swapmsg = await message.channel.send({
-    content: `***Click on the __Buttons__ to swap the Pages***`,
+    content: `***Нажмите на __кнопки__, чтобы поменять местами страницы***`,
     embeds: [embeds[0]],
     components: allbuttons
   });
@@ -592,7 +592,7 @@ async function swap_pages(client, message, description, TITLE) {
   collector.on('collect', async b => {
     if (b.user.id !== message.author.id)
       return b.reply({
-        content: `❌ **Only the one who typed ${prefix}help is allowed to react!**`,
+        content: `❌ **Только тот, кто напечатал ${prefix}help разрешается реагировать!**`,
         ephemeral: true
       })
     //page forward
@@ -653,7 +653,7 @@ async function swap_pages2(client, message, embeds) {
   let cmduser = message.author;
   if (embeds.length === 1) return message.channel.send({
     embeds: [embeds[0]]
-  }).catch(e => console.log("THIS IS TO PREVENT A CRASH"))
+  }).catch(e => console.log("ЭТО НЕОБХОДИМО ДЛЯ ПРЕДОТВРАЩЕНИЯ АВАРИИ"))
   let button_back = new MessageButton().setStyle('SUCCESS').setCustomId('1').setEmoji("833802907509719130").setLabel("Back")
   let button_home = new MessageButton().setStyle('DANGER').setCustomId('2').setEmoji("🏠").setLabel("Home")
   let button_forward = new MessageButton().setStyle('SUCCESS').setCustomId('3').setEmoji('832598861813776394').setLabel("Forward")
@@ -661,7 +661,7 @@ async function swap_pages2(client, message, embeds) {
   let prefix = client.settings.get(message.guild.id, "prefix");
   //Send message with buttons
   let swapmsg = await message.channel.send({
-    content: `***Click on the __Buttons__ to swap the Pages***`,
+    content: `***Нажмите на __кнопки__, чтобы поменять местами страницы***`,
     embeds: [embeds[0]],
     components: allbuttons
   });
@@ -674,7 +674,7 @@ async function swap_pages2(client, message, embeds) {
   collector.on('collect', async b => {
     if (b.user.id !== message.author.id)
       return b.reply({
-        content: `❌ **Only the one who typed ${prefix}help is allowed to react!**`,
+        content: `❌ **Только тот, кто напечатал ${prefix}help разрешается реагировать!**`,
         ephemeral: true
       })
     //page forward
@@ -743,7 +743,7 @@ async function swap_pages2_interaction(client, interaction, embeds) {
   let prefix = client.settings.get(interaction.member.guild.id, "prefix");
   //Send message with buttons
   let swapmsg = await interaction.reply({
-    content: `***Click on the __Buttons__ to swap the Pages***`,
+    content: `***Нажмите на __кнопки__, чтобы поменять местами страницы***`,
     embeds: [embeds[0]],
     components: allbuttons,
     ephemeral: true
@@ -757,7 +757,7 @@ async function swap_pages2_interaction(client, interaction, embeds) {
   collector.on('collect', async b => {
     if (b.user.id !== cmduser.id)
       return b.reply({
-        content: `❌ **Only the one who typed ${prefix}help is allowed to react!**`,
+        content: `❌ **Только тот, кто напечатал ${prefix}help разрешается реагировать!**`,
         ephemeral: true
       })
     //page forward

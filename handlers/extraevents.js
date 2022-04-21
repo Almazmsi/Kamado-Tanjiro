@@ -26,20 +26,20 @@ module.exports = client => {
 
   client.updateMusicSystem = async (player, leave = false) => {
     if (client.musicsettings.get(player.guild, "channel") && client.musicsettings.get(player.guild, "channel").length > 5) {
-      client.logger("Update Music System called and executed")
+      client.logger("Вызвано и выполнено обновление музыкальной системы")
       let messageId = client.musicsettings.get(player.guild, "message");
       //try to get the guild
       let guild = client.guilds.cache.get(player.guild);
-      if (!guild) return client.logger("Music System - Guild not found!")
+      if (!guild) return client.logger("Музыкальная система - Сервер не найден!")
       //try to get the channel
       let channel = guild.channels.cache.get(client.musicsettings.get(player.guild, "channel"));
       if (!channel) channel = await guild.channels.fetch(client.musicsettings.get(player.guild, "channel")).catch(() => {}) || false
-      if (!channel) return client.logger("Music System - Channel not found!")
-      if (!channel.permissionsFor(channel.guild.me).has(Permissions.FLAGS.SEND_MESSAGES)) return client.logger("Music System - Missing Permissions")
+      if (!channel) return client.logger("Музыкальная система - канал не найден!")
+      if (!channel.permissionsFor(channel.guild.me).has(Permissions.FLAGS.SEND_MESSAGES)) return client.logger("Музыкальная система - отсутствуют права")
       //try to get the channel
       let message = channel.messages.cache.get(messageId);
       if (!message) message = await channel.messages.fetch(messageId).catch(() => {}) || false;
-      if (!message) return client.logger("Music System - Message not found!")
+      if (!message) return client.logger("Музыкальная система - сообщение не найдено!")
       //edit the message so that it's right!
       var data = require(`${process.cwd()}/handlers/erela_events/musicsystem`).generateQueueEmbed(client, player.guild, leave)
       message.edit(data).catch((e) => {
@@ -48,20 +48,20 @@ module.exports = client => {
     }
   };
 
-  client.editLastPruningMessage = async (player, footertext = "\n⛔️ SONG ENDED!") => {
-    client.logger("Editing the Last Message System called and executed")
+  client.editLastPruningMessage = async (player, footertext = "\n⛔️ Трек Закончен!") => {
+    client.logger("Редактирование последнего сообщения Система вызвана и выполнена")
     let guild = client.guilds.cache.get(player.guild);
-    if (!guild) return client.logger("Editing the Last Message - Guild not found!")
+    if (!guild) return client.logger("Редактирование последнего сообщения - Сервер не найден!")
     //try to get the channel
     let channel = guild.channels.cache.get(player.textChannel);
     if (!channel) channel = await guild.channels.fetch(player.textChannel).catch(() => {}) || false;
-    if (!channel) return client.logger("Editing the Last Message - Channel not found")
-    if (!channel.permissionsFor(channel.guild.me).has(Permissions.FLAGS.SEND_MESSAGES)) return client.logger("Editing the Last Message - Missing Permissions")
+    if (!channel) return client.logger("Редактирование последнего сообщения - канал не найден")
+    if (!channel.permissionsFor(channel.guild.me).has(Permissions.FLAGS.SEND_MESSAGES)) return client.logger("Редактирование последнего сообщения - отсутствуют права")
     //try to get the message
     let message = channel.messages.cache.get(player.get("currentmsg"));
     if (!message) message = await channel.messages.fetch(player.get("currentmsg")).catch(() => {}) || false;
-    if (!message) return client.logger("Editing the Last Message - Message not found!")
-    if (!message.embeds || !message.embeds[0]) return client.logger("Editing the Last Message - Embeds got removed!")
+    if (!message) return client.logger("Редактирование последнего сообщения - сообщение не найдено!")
+    if (!message.embeds || !message.embeds[0]) return client.logger("Редактирование последнего сообщения - Эмбеды были удалены!")
     //get the embed + change it
     var embed = message.embeds[0];
     embed.author.iconURL = "https://cdn.discordapp.com/attachments/883978730261860383/883978741892649000/847032838998196234.png"
@@ -80,10 +80,10 @@ module.exports = client => {
       //get the actual beforemessage
       let beforemessage = channel.messages.cache.get(player.get("beforemessage"))
       if (!beforemessage) message = await channel.messages.fetch(player.get("beforemessage")).catch(() => {}) || false;
-      if (!beforemessage) return client.logger("Editing the Last Message - Before - Message not found!")
+      if (!beforemessage) return client.logger("Редактирование последнего сообщения - Перед - Сообщение не найдено!")
       //if not able to 
-      if (!beforemessage) return client.logger("Editing the Last Message - Before - Message already deleted");
-      if (!beforemessage.deletable) return client.logger("Editing the Last Message - Before - Message not delete able");
+      if (!beforemessage) return client.logger("Редактирование последнего сообщения - Перед - Сообщение уже удалено");
+      if (!beforemessage.deletable) return client.logger("Редактирование последнего сообщения - Перед - Сообщение не может быть удалено");
       //delete the message
       beforemessage.delete().catch(() => {})
       //set the new before message
@@ -99,7 +99,7 @@ module.exports = client => {
 
     let text = embedData.footertext;
     let iconURL = embedData.footericon;
-    if(!text || text.length < 1) text = `${client.user.username} | By: Tomato#6966`;
+    if(!text || text.length < 1) text = `${client.user.username} | Сделано: </>#8181>`;
     if(!iconURL || iconURL.length < 1) iconURL = `${client.user.displayAvatarURL()}`;
     
     //Change the lengths
@@ -119,16 +119,16 @@ module.exports = client => {
     let iconURL = authoricon;
     let url = authorurl;
 
-    if(!name || name.length < 1) name = `${client.user.username} | By: Tomato#6966`;
+    if(!name || name.length < 1) name = `${client.user.username} | Сделано: </>#8181>`;
     if(!iconURL || iconURL.length < 1) iconURL = `${client.user.displayAvatarURL()}`;
-    if(!url || url.length < 1) url = `https://discord.gg/milrato`;
+    if(!url || url.length < 1) url = `https://discord.gg/quraso`;
 
     //Change the lengths
     iconURL = iconURL.trim();
     name = name.trim().substring(0, 2048);
     
     //verify the iconURL
-    if(!url.startsWith("https://") && !url.startsWith("http://")) url = `https://discord.gg/milrato`;
+    if(!url.startsWith("https://") && !url.startsWith("http://")) url = `https://discord.gg/quraso`;
     if(!iconURL.startsWith("https://") && !iconURL.startsWith("http://")) iconURL = client.user.displayAvatarURL();
     if(![".png", ".jpg", ".wpeg", ".webm", ".gif"].some(d => iconURL.toLowerCase().endsWith(d))) iconURL = client.user.displayAvatarURL();
     //return the footerobject

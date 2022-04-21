@@ -38,9 +38,9 @@ async function similar(client, message, args, type, slashCommand) {
         .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["similar"]["variable2"]))
         .setColor(ee.color)
         .setThumbnail(`https://img.youtube.com/vi/${res.tracks[0].identifier}/mqdefault.jpg`)
-        .addField("⌛ Duration: ", `> \`${res.tracks[0].isStream ? "LIVE STREAM" : format(res.tracks[0].duration)}\``, true)
-        .addField("💯 Song By: ", `> \`${res.tracks[0].author}\``, true)
-        .addField("🔂 Queue length: ", `> \`${player.queue.length} Songs\``, true)
+        .addField("⌛ Длительность: ", `> \`${res.tracks[0].isStream ? "LIVE STREAM" : format(res.tracks[0].duration)}\``, true)
+        .addField("💯 Запросил: ", `> \`${res.tracks[0].author}\``, true)
+        .addField("🔂 Продолжитьельность очереди: ", `> \`${player.queue.length} Songs\``, true)
       message.channel.send({
         embeds: [embed2]
       })
@@ -60,10 +60,10 @@ async function similar(client, message, args, type, slashCommand) {
         .map((track, index) => `**${++index})** [\`${String(track.title).substr(0, 60).split("[").join("{").split("]").join("}")}\`](${track.uri}) - \`${format(track.duration).split(" | ")[0]}\``)
         .join('\n');
       var searchembed = new MessageEmbed()
-        .setTitle(`Search result for: 🔎 **\`${player.queue.current.title}`.substr(0, 256 - 3) + "`**")
+        .setTitle(`Результат поиска для: 🔎 **\`${player.queue.current.title}`.substr(0, 256 - 3) + "`**")
         .setColor(ee.color)
         .setDescription(results)
-        .setFooter(client.getFooter(`Search-Request by: ${track.requester.tag}`, track.requester.displayAvatarURL({
+        .setFooter(client.getFooter(`Поиск-запрос по: ${track.requester.tag}`, track.requester.displayAvatarURL({
           dynamic: true
         })))
       message.channel.send({
@@ -114,7 +114,7 @@ async function similar(client, message, args, type, slashCommand) {
         return message.channel.send({
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["similar"]["variable7"]))
           ]
         }).then(msg => {
@@ -137,10 +137,10 @@ async function similar(client, message, args, type, slashCommand) {
         var embed = new MessageEmbed()
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["similar"]["variable8"]))
           .setColor(ee.color)
-          .setThumbnail(`https://img.youtube.com/vi/${track.identifier}/mqdefault.jpg`)
-          .addField("⌛ Duration: ", `> \`${track.isStream ? "LIVE STREAM" : format(track.duration)}\``, true)
-          .addField("💯 Song By: ", `> \`${track.author}\``, true)
-          .addField("🔂 Queue length: ", `> \`${player.queue.length} Songs\``, true)
+          .setThumbnail(`https://img.youtube.com/vi/${res.tracks[0].identifier}/mqdefault.jpg`)
+          .addField("⌛ Длительность: ", `> \`${res.tracks[0].isStream ? "LIVE STREAM" : format(res.tracks[0].duration)}\``, true)
+          .addField("💯 Запросил: ", `> \`${res.tracks[0].author}\``, true)
+          .addField("🔂 Продолжитьельность очереди: ", `> \`${player.queue.length} Songs\``, true)
         message.channel.send({
           embeds: [embed]
         })
@@ -153,7 +153,7 @@ async function similar(client, message, args, type, slashCommand) {
     return message.channel.send({
       embeds: [new MessageEmbed()
         .setColor(ee.wrongcolor)
-        .setTitle(String("❌ Error | Found nothing for: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
+        .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + player.queue.current.title).substr(0, 256 - 3) + "`**")
       ]
     }).then(msg => {
       setTimeout(() => {

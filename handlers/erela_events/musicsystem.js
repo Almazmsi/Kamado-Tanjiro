@@ -53,12 +53,12 @@ module.exports = client => {
     //if the member is not connected to a vc, return
     if (!member.voice.channel) return interaction.reply({
       ephemeral: true,
-      content: ":x: **Please Connect to a Voice Channel first!**"
+      content: ":x: **Пожалуйста, сначала подключитесь к голосовому каналу!**"
     })
     //now its time to start the music system
     if (!member.voice.channel)
       return interaction.reply({
-        content: `<:error:951379674418782218> **Please join a Voice Channel first!**`,
+        content: `<:error:951379674418782218> **Пожалуйста, сначала присоединитесь к голосовому каналу!**`,
         ephemeral: true
       })
 
@@ -66,13 +66,13 @@ module.exports = client => {
     //if not connected to the same voice channel, then make sure to connect to it!
     if (player && member.voice.channel.id !== player.voiceChannel)
       return interaction.reply({
-        content: `<:error:951379674418782218> **Please join __my__ Voice Channel first! <#${player.voiceChannel}>**`,
+        content: `<:error:951379674418782218> **Пожалуйста, сначала присоединяйтесь к __моему__ голосовому каналу! <#${player.voiceChannel}>**`,
         ephemeral: true
       })
     if (interaction.isButton()) {
       if (!player || !player.queue || !player.queue.current) {
         return interaction.reply({
-          content: "<:error:951379674418782218> Nothing Playing yet",
+          content: "<:error:951379674418782218> Ничего пока не играет",
           ephemeral: true
         })
       }
@@ -82,7 +82,7 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.wrongcolor)
             .setFooter(client.getFooter(es))
-            .setTitle(`<:error:951379674418782218> **You are not a DJ and not the Song Requester!**`)
+            .setTitle(`<:error:951379674418782218> **Вы не диджей и не заказчик песен!**`)
             .setDescription(`**DJ-ROLES:**\n${check_if_dj(client, interaction.member, player.queue.current)}`)
           ],
           ephemeral: true
@@ -98,8 +98,8 @@ module.exports = client => {
               embeds: [new MessageEmbed()
                 .setColor(es.color)
                 .setTimestamp()
-                .setTitle(`⏹ **Stopped playing and left the Channel**`)
-                .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+                .setTitle(`⏹ **Прекратил игру и покинул канал**`)
+                .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                   dynamic: true
                 })))
               ]
@@ -118,8 +118,8 @@ module.exports = client => {
             embeds: [new MessageEmbed()
               .setColor(es.color)
               .setTimestamp()
-              .setTitle(`⏭ **Skipped to the next Song!**`)
-              .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+              .setTitle(`⏭ **Переход к следующей песне!**`)
+              .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                 dynamic: true
               })))
             ]
@@ -137,8 +137,8 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.color)
             .setTimestamp()
-            .setTitle(`⏹ **Stopped playing and left the Channel**`)
-            .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+            .setTitle(`⏹ **Прекратил игру и покинул канал**`)
+            .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
               dynamic: true
             })))
           ]
@@ -166,8 +166,8 @@ module.exports = client => {
             embeds: [new MessageEmbed()
               .setColor(es.color)
               .setTimestamp()
-              .setTitle(`▶️ **Resumed!**`)
-              .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+              .setTitle(`▶️ **Возобновлено!**`)
+              .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                 dynamic: true
               })))
             ]
@@ -180,8 +180,8 @@ module.exports = client => {
             embeds: [new MessageEmbed()
               .setColor(es.color)
               .setTimestamp()
-              .setTitle(`⏸ **Paused!**`)
-              .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+              .setTitle(`⏸ **Приостановлено!**`)
+              .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
                 dynamic: true
               })))
             ]
@@ -201,8 +201,8 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.color)
             .setTimestamp()
-            .setTitle(`${player.get(`autoplay`) ? `<a:yes:945004422172385330> **Enabled Autoplay**`: `<:error:951379674418782218> **Disabled Autoplay**`}`)
-            .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+            .setTitle(`${player.get(`autoplay`) ? `<a:yes:945004422172385330> **Включено автовоспроизведение**`: `<:error:951379674418782218> **Отключено автовоспроизведение**`}`)
+            .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
               dynamic: true
             })))
           ]
@@ -224,8 +224,8 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.color)
             .setTimestamp()
-            .setTitle(`🔀 **Shuffled ${player.queue.length} Songs!**`)
-            .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+            .setTitle(`🔀 **Перемешал ${player.queue.length} треков!**`)
+            .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
               dynamic: true
             })))
           ]
@@ -248,8 +248,8 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.color)
             .setTimestamp()
-            .setTitle(`${player.trackRepeat ? `<a:yes:945004422172385330> **Enabled Song Loop**`: `<:error:951379674418782218> **Disabled Song Loop**`}`)
-            .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+            .setTitle(`${player.trackRepeat ? `<a:yes:945004422172385330> **Включена функция повторения трека**`: `<:error:951379674418782218> **Отключена функция повторения трека**`}`)
+            .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
               dynamic: true
             })))
           ]
@@ -272,8 +272,8 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.color)
             .setTimestamp()
-            .setTitle(`${player.queueRepeat ? `<a:yes:945004422172385330> **Enabled Queue Loop**`: `<:error:951379674418782218> **Disabled Queue Loop**`}`)
-            .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+            .setTitle(`${player.queueRepeat ? `<a:yes:945004422172385330> **Включена функция повторения очереди**`: `<:error:951379674418782218> **Отключена функция повторения очереди**`}`)
+            .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
               dynamic: true
             })))
           ]
@@ -298,8 +298,8 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.color)
             .setTimestamp()
-            .setTitle(`⏩ **Forwarded the song for \`10 Seconds\`!**`)
-            .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+            .setTitle(`⏩ **Перемотано вперед на  \`10 секунд\`!**`)
+            .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
               dynamic: true
             })))
           ]
@@ -322,8 +322,8 @@ module.exports = client => {
           embeds: [new MessageEmbed()
             .setColor(es.color)
             .setTimestamp()
-            .setTitle(`⏪ **Rewinded the song for \`10 Seconds\`!**`)
-            .setFooter(client.getFooter(`💢 Action by: ${member.user.tag}`, member.user.displayAvatarURL({
+            .setTitle(`⏪ **Отмотано на  \`10 Seconds\`!**`)
+            .setFooter(client.getFooter(`💢 Запросил: ${member.user.tag}`, member.user.displayAvatarURL({
               dynamic: true
             })))
           ]
@@ -378,7 +378,7 @@ module.exports = client => {
       interaction.reply({
         embeds: [new MessageEmbed()
           .setColor(es.color)
-          .setAuthor(client.getAuthor(`Loading '${interaction.values[0] ? interaction.values[0] : "Default"}' Music Mix`, "https://imgur.com/xutrSuq.gif", link))
+          .setAuthor(client.getAuthor(`Загружено '${interaction.values[0] ? interaction.values[0] : "Default"}' Музыкальный микс`, "https://imgur.com/xutrSuq.gif", link))
           .setTitle(eval(client.la[ls]["cmds"]["music"]["playmusicmix"]["variable1"]))
           .setDescription(eval(client.la[ls]["cmds"]["music"]["playmusicmix"]["variable2"]))
           .addField(eval(client.la[ls]["cmds"]["music"]["playmusicmix"]["variablex_3"]), eval(client.la[ls]["cmds"]["music"]["playmusicmix"]["variable3"]))
@@ -507,9 +507,9 @@ function generateQueueEmbed(client, guildId, leave) {
       .setFooter(client.getFooter(`Запросил: ${player.queue.current.requester.tag}`, player.queue.current.requester.displayAvatarURL({
         dynamic: true
       })))
-      .addField(`${emoji.msg.time} Длинна: `, `\`${format(player.queue.current.duration).split(" | ")[0]}\` | \`${format(player.queue.current.duration).split(" | ")[1]}\``, true)
+      .addField(`${emoji.msg.time} Длительность: `, `\`${format(player.queue.current.duration).split(" | ")[0]}\` | \`${format(player.queue.current.duration).split(" | ")[1]}\``, true)
       .addField(`${emoji.msg.song_by} Автор: `, `\`${player.queue.current.author}\``, true)
-      .addField(`${emoji.msg.repeat_mode} Длинна очереди: `, `\`${player.queue.length} треков\``, true)
+      .addField(`${emoji.msg.repeat_mode} Продолжительность очереди: `, `\`${player.queue.length} треков\``, true)
       .setAuthor(client.getAuthor(`${player.queue.current.title}`, "https://images-ext-1.discordapp.net/external/DkPCBVBHBDJC8xHHCF2G7-rJXnTwj_qs78udThL8Cy0/%3Fv%3D1/https/cdn.discordapp.com/emojis/859459305152708630.gif", player.queue.current.uri))
     delete embeds[1].description;
     delete embeds[1].title;
@@ -561,7 +561,7 @@ function generateQueueEmbed(client, guildId, leave) {
   var skipbutton = new MessageButton().setStyle('PRIMARY').setCustomId('Skip').setEmoji(`⏭`).setLabel(`Пропустить`).setDisabled();
   var shufflebutton = new MessageButton().setStyle('PRIMARY').setCustomId('Shuffle').setEmoji('🔀').setLabel(`Перемешать`).setDisabled();
   var pausebutton = new MessageButton().setStyle('SECONDARY').setCustomId('Pause').setEmoji('⏸').setLabel(`Пауза`).setDisabled();
-  var autoplaybutton = new MessageButton().setStyle('SUCCESS').setCustomId('Autoplay').setEmoji('🔁').setLabel(`Автопроигрывание`).setDisabled();
+  var autoplaybutton = new MessageButton().setStyle('SUCCESS').setCustomId('Autoplay').setEmoji('🔁').setLabel(`Автовоспроизведение`).setDisabled();
   var songbutton = new MessageButton().setStyle('SUCCESS').setCustomId('Song').setEmoji(`🔁`).setLabel(`Повтор песни`).setDisabled();
   var queuebutton = new MessageButton().setStyle('SUCCESS').setCustomId('Queue').setEmoji(`🔂`).setLabel(`Повтор очереди`).setDisabled();
   var forwardbutton = new MessageButton().setStyle('PRIMARY').setCustomId('Forward').setEmoji('⏩').setLabel(`+10 секунд`).setDisabled();

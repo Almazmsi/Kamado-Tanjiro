@@ -14,10 +14,10 @@ module.exports = (client) => {
           if (pull.name) {
             client.commands.set(pull.name, pull);
             if (settings.show_loaded_commands) {
-              client.logger(`Loaded Command: ${file}`)
+              client.logger(`Загружено: ${file}`)
             }
           } else {
-            client.logger(`Error on Command: ${file} -> missing a help.name,or help.name is not a string.`)
+            client.logger(`Ошибка при выполнении команды: ${file} -> отсутствует help.name, или help.name не является строкой.`)
             continue;
           }
           if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach((alias) => client.aliases.set(alias, pull.name));

@@ -50,7 +50,7 @@ async function search(client, message, args, type, slashCommand) {
       // Check the load type as this command is not that advanced for basics
       if (res.loadType === "LOAD_FAILED") throw res.exception;
       else if (res.loadType === "PLAYLIST_LOADED") throw {
-        message: "Playlists are not supported with this command. Use   ?playlist  "
+        message: "Списки воспроизведения не поддерживаются этой командой. Используйте   //playlist  "
       };
     } catch (e) {
       console.log(e.stack ? String(e.stack).grey : String(e).grey)
@@ -91,21 +91,21 @@ async function search(client, message, args, type, slashCommand) {
       var songoptions = [...emojiarray.slice(0, max).map((emoji, index) => {
           return {
             value: `Add ${index + 1}. Track`.substr(0, 25),
-            label: `Add ${index + 1}. Track`.substr(0, 25),
-            description: `Add: ${res.tracks[index].title}`.substr(0, 50),
+            label: `Добавить ${index + 1}. Трек`.substr(0, 25),
+            description: `Добавлен: ${res.tracks[index].title}`.substr(0, 50),
             emoji: `${emoji}`
           }
         }),
         {
           value: `Cancel`,
-          label: `Cancel`,
-          description: `Cancel the Searching Process`,
+          label: `Отменить`,
+          description: `Отмена процесса поиска`,
           emoji: "❌"
         }
       ];
       let Selection = new MessageSelectMenu()
         .setCustomId('MenuSelection').setMaxValues(emojiarray.slice(0, max).length)
-        .setPlaceholder('Select all Songs you want to add')
+        .setPlaceholder('Выберите все песни, которые вы хотите добавить')
         .addOptions(songoptions)
       //send the menu msg
       let menumsg;
@@ -113,10 +113,10 @@ async function search(client, message, args, type, slashCommand) {
         menumsg = await message.channel.send({
           embeds: [
             new MessageEmbed()
-            .setTitle(`Search-Result for: 🔎 **\`${search}`.substr(0, 256 - 3) + "`**")
+            .setTitle(`Результаты поиска: 🔎 **\`${search}`.substr(0, 256 - 3) + "`**")
             .setColor(ee.color)
             .setDescription(results)
-            .setFooter(client.getFooter(`Search-Request by: ${track.requester.tag}`, track.requester.displayAvatarURL({
+            .setFooter(client.getFooter(`Результаты поиска: ${track.requester.tag}`, track.requester.displayAvatarURL({
               dynamic: true
             })))
           ],
@@ -128,10 +128,10 @@ async function search(client, message, args, type, slashCommand) {
         menumsg = await message.channel.send({
           embeds: [
             new MessageEmbed()
-            .setTitle(`Search-Result for: 🔎 **\`${search}`.substr(0, 256 - 3) + "`**")
+            .setTitle(`Результаты поиска: 🔎 **\`${search}`.substr(0, 256 - 3) + "`**")
             .setColor(ee.color)
             .setDescription(results)
-            .setFooter(client.getFooter(`Search-Request by: ${track.requester.tag}`, track.requester.displayAvatarURL({
+            .setFooter(client.getFooter(`Результаты поиска: ${track.requester.tag}`, track.requester.displayAvatarURL({
               dynamic: true
             })))
           ],
@@ -178,7 +178,7 @@ async function search(client, message, args, type, slashCommand) {
           menumsg.edit({
             embeds: [menumsg.embeds[0].setTitle(`Picked Songs:`).setDescription(picked_songs.join("\n\n"))],
             components: [],
-            content: `${collected && collected.first() && collected.first().values ? `👍 **Selected: \`${collected ? collected.map(s => s.value).join(", ") : "Nothing"}\`**` : "❌ **NOTHING SELECTED - CANCELLED**" }`
+            content: `${collected && collected.first() && collected.first().values ? `👍 **Выбрано: \`${collected ? collected.map(s => s.value).join(", ") : "Ничего"}\`**` : "❌ **Ничего не выбрано. Отмена**" }`
           })
           if (player.state !== "CONNECTED") {
             //set the variables
@@ -206,9 +206,9 @@ async function search(client, message, args, type, slashCommand) {
               .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["search"]["variable5"]))
               .setColor(ee.color)
               .setThumbnail(`https://img.youtube.com/vi/${track.identifier}/mqdefault.jpg`)
-              .addField("⌛ Duration: ", `> \`${track.isStream ? "LIVE STREAM" : format(track.duration)}\``, true)
-              .addField("💯 Song By: ", `> \`${track.author}\``, true)
-              .addField("🔂 Queue length: ", `> \`${player.queue.length} Songs\``, true)
+              .addField("⌛ Длительность: ", `> \`${track.isStream ? "LIVE STREAM" : format(track.duration)}\``, true)
+              .addField("💯 Запросил: ", `> \`${track.author}\``, true)
+              .addField("🔂 Продолжительность очереди: ", `> \`${player.queue.length} Songs\``, true)
             if (slashCommand && slashCommand.isCommand()) {
               await slashCommand.reply({
                 ephemeral: true,
@@ -224,7 +224,7 @@ async function search(client, message, args, type, slashCommand) {
           client.updateMusicSystem(player);
 
         } else menu.reply({
-          content: `❌ You are not allowed to do that! Only: <@${cmduser.id}>`,
+          content: `❌ Вам не разрешается это делать! Только: <@${cmduser.id}>`,
           ephemeral: true
         });
       });
@@ -240,14 +240,14 @@ async function search(client, message, args, type, slashCommand) {
         ephemeral: true,
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
         ]
       }).catch(() => {});
     }
     return message.channel.send({
       embeds: [new MessageEmbed()
         .setColor(ee.wrongcolor)
-        .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+        .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
       ]
     }).catch(() => {}).then(msg => {
       setTimeout(() => msg.delete().catch(() => {}), 3000)

@@ -56,14 +56,14 @@ async function playtop(client, message, args, type, slashCommand) {
           ephemeral: true,
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playtop"]["variable1"]))
           ]
         }).catch(() => {})
       return message.channel.send({
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playtop"]["variable1"]))
         ]
       }).catch(() => {}).then(msg => {
@@ -111,9 +111,9 @@ async function playtop(client, message, args, type, slashCommand) {
       .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playtop"]["variable2"]))
       .setColor(ee.color)
       .setThumbnail(`https://img.youtube.com/vi/${res.tracks[0].identifier}/mqdefault.jpg`)
-      .addField("⌛ Duration: ", `> \`${res.tracks[0].isStream ? "LIVE STREAM" : format(res.tracks[0].duration)}\``, true)
-      .addField("💯 Song By: ", `> \`${res.tracks[0].author}\``, true)
-      .addField("🔂 Queue length: ", `> \`${player.queue.length} Songs\``, true)
+      .addField("⌛ Длительность: ", `> \`${res.tracks[0].isStream ? "LIVE STREAM" : format(res.tracks[0].duration)}\``, true)
+      .addField("💯 Запросил: ", `> \`${res.tracks[0].author}\``, true)
+      .addField("🔂 Продолжительность очереди: ", `> \`${player.queue.length} Songs\``, true)
     if (slashCommand && slashCommand.isCommand()) slashCommand.reply({
       ephemeral: true,
       embeds: [playembed]
@@ -133,14 +133,14 @@ async function playtop(client, message, args, type, slashCommand) {
           ephemeral: true,
           embeds: [new MessageEmbed()
             .setColor(ee.wrongcolor)
-            .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+            .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
             .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playtop"]["variable3"]))
           ]
         }).catch(() => {})
       return message.channel.send({
         embeds: [new MessageEmbed()
           .setColor(ee.wrongcolor)
-          .setTitle(String("❌ Error | Found nothing for: **`" + search).substr(0, 256 - 3) + "`**")
+          .setTitle(String("❌ Ошибка | Ничего не найдено для: **`" + search).substr(0, 256 - 3) + "`**")
           .setDescription(eval(client.la[ls]["handlers"]["playermanagers"]["playtop"]["variable3"]))
         ]
       }).catch(() => {}).then(msg => {
@@ -191,8 +191,8 @@ async function playtop(client, message, args, type, slashCommand) {
       time -= track.duration;
 
     playlistembed.addField(eval(client.la[ls]["handlers"]["playermanagers"]["playtop"]["variablex_5"]), `> \`${eval(client.la[ls]["handlers"]["playermanagers"]["playtop"]["variable5"])}\``)
-      .addField("Position in queue", `> \`${player.queue.length - res.tracks.length + 1 === 0 ? "NOW" : player.queue.length - res.tracks.length + 1}\``, true)
-      .addField("Enqueued", `> \`${res.tracks.length}\``, true)
+      .addField("Позиция в очереди", `> \`${player.queue.length - res.tracks.length + 1 === 0 ? "Сейчас" : player.queue.length - res.tracks.length + 1}\``, true)
+      .addField("Записано", `> \`${res.tracks.length}\``, true)
     //if bot allowed to send embed, do it otherwise pure txt msg
     if (message.guild.me.permissionsIn(message.channel).has("EMBED_LINKS")) {
       if (slashCommand && slashCommand.isCommand())
